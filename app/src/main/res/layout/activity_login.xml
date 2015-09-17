@@ -8,7 +8,7 @@
     android:paddingLeft="@dimen/density_twenty_five"
     android:paddingRight="@dimen/density_twenty_five"
     android:background="@drawable/login_background" >
-
+        <!--wE aRE jUST tESTING-->
     <ViewFlipper
         android:layout_width="match_parent"
         android:layout_height="match_parent"
