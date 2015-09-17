@@ -1,8 +1,6 @@
 package br.liveo.controller;
-import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.util.Log;
 
@@ -30,7 +28,7 @@ public class HighlightWeekendsDecorator implements DayViewDecorator {
     private static final int color = Color.parseColor("#e0e0e0");
 
     public HighlightWeekendsDecorator(Context context) {
-        highlightDrawable = context.getResources().getDrawable(R.drawable.shape_circle_gray);
+        highlightDrawable = context.getResources().getDrawable(R.drawable.circle_gray_filled);
     }
 
     @Override

@@ -39,13 +39,6 @@ public class ReviewSummaryFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_review_summary, container, false);
         rootView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-        rootView.findViewById(R.id.txtScore).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick (View v){
-                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container, new ReviewQuestionFragment())
-                        .addToBackStack(MainActivity.MAIN_FRAGMENT_STACK).commit();
-            }
-        });
         return rootView;
     }
 
