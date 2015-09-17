@@ -34,33 +34,35 @@ public class ReviewCategoryFragment extends Fragment {
         rootView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
         GridView gridViewQuestionBullets = (GridView) rootView.findViewById(R.id.gridViewQuestionBullets);
         ArrayList<Bullet> bullets = new ArrayList<>();
-        if (getArguments().getString("FROM").equals("INCORRECT")) {
-            bullets.add(new Bullet("2", RED));
+        if (getArguments().getString("FROM").equals("CORRECT")) {
+            bullets.add(new Bullet("1", GREEN));
+            bullets.add(new Bullet("2", GREEN));
+            bullets.add(new Bullet("5", GREEN));
+            bullets.add(new Bullet("6", GREEN));
+            bullets.add(new Bullet("9", GREEN));
+            bullets.add(new Bullet("10", GREEN));
+            bullets.add(new Bullet("13", GREEN));
+            bullets.add(new Bullet("14", GREEN));
+            bullets.add(new Bullet("15", GREEN));
+            bullets.add(new Bullet("17", GREEN));
+        } else if (getArguments().getString("FROM").equals("INCORRECT")) {
+            bullets.add(new Bullet("3", RED));
             bullets.add(new Bullet("4", RED));
-            bullets.add(new Bullet("5", RED));
-            bullets.add(new Bullet("8", RED));
-            bullets.add(new Bullet("99", RED));
-            bullets.add(new Bullet("2", RED));
-            bullets.add(new Bullet("4", RED));
-            bullets.add(new Bullet("5", RED));
-            bullets.add(new Bullet("8", RED));
-            bullets.add(new Bullet("99", RED));
-            bullets.add(new Bullet("2", RED));
-            bullets.add(new Bullet("4", RED));
-            bullets.add(new Bullet("5", RED));
-            bullets.add(new Bullet("8", RED));
-            bullets.add(new Bullet("99", RED));
-
+            bullets.add(new Bullet("7", RED));
+            bullets.add(new Bullet("11", RED));
+            bullets.add(new Bullet("12", RED));
+            bullets.add(new Bullet("16", RED));
+            bullets.add(new Bullet("18", RED));
+            bullets.add(new Bullet("20", RED));
         } else if (getArguments().getString("FROM").equals("UNANSWERED")) {
-            bullets.add(new Bullet("3", GRAY));
-            bullets.add(new Bullet("6", GRAY));
-            bullets.add(new Bullet("7", GRAY));
+            bullets.add(new Bullet("8", GRAY));
+            bullets.add(new Bullet("19", GRAY));
         }
         gridViewQuestionBullets.setAdapter(new QuestionBulletAdapter(getActivity(), R.layout.layout_bullet, bullets));
         gridViewQuestionBullets.setOnItemClickListener(new GridView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container, new ReviewQuestionFragment())
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container, new ReviewCategoryPagerFragment())
                         .addToBackStack(MainActivity.MAIN_FRAGMENT_STACK).commit();
             }
         });

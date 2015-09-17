@@ -32,6 +32,12 @@ public class ReviewPagerFragment extends Fragment {
     private void createTabPagerItem(){
         mTabs.add(new TabPagerItem("Summary", new ReviewSummaryFragment()));
 
+        Bundle bundleCorrect = new Bundle();
+        bundleCorrect.putString("FROM", "CORRECT");
+        ReviewCategoryFragment reviewCategoryFragmentCorrect = new ReviewCategoryFragment();
+        reviewCategoryFragmentCorrect.setArguments(bundleCorrect);
+        mTabs.add(new TabPagerItem("Correct", reviewCategoryFragmentCorrect));
+
         Bundle bundleIncorrect = new Bundle();
         bundleIncorrect.putString("FROM", "INCORRECT");
         ReviewCategoryFragment reviewCategoryFragmentIncorrect = new ReviewCategoryFragment();
@@ -57,10 +63,13 @@ public class ReviewPagerFragment extends Fragment {
     	ViewPager mViewPager = (ViewPager) view.findViewById(R.id.viewPager);
     	mViewPager.setOffscreenPageLimit(mTabs.size());
         mViewPager.setAdapter(new ViewPagerAdapter(getChildFragmentManager(), mTabs));
+
         TabLayout mSlidingTabLayout = (TabLayout) view.findViewById(R.id.tabLayout);
+        mSlidingTabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
+        mSlidingTabLayout.setupWithViewPager(mViewPager);
+
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             mSlidingTabLayout.setElevation(10);
         }
-        mSlidingTabLayout.setupWithViewPager(mViewPager);
     }
 }

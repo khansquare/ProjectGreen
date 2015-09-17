@@ -8,6 +8,7 @@ import android.view.View;
 
 import br.liveo.Model.HelpLiveo;
 import br.liveo.fragment.CalenderFragment;
+import br.liveo.fragment.FragmentHelpAndSupport;
 import br.liveo.fragment.HomeFragment;
 
 import br.liveo.fragment.TestListPagerFragment;
@@ -72,6 +73,9 @@ public class MainActivity extends NavigationLiveo implements OnItemClickListener
                 break;
             case 5:
                 mFragment = new CalenderFragment();
+                break;
+            case 8:
+                mFragment = new FragmentHelpAndSupport();
                 break;
             default:
                 mFragment = new HomeFragment();
