@@ -24,6 +24,7 @@ import br.liveo.navigationviewpagerliveo.R;
 public class HighlightWeekendsDecorator implements DayViewDecorator {
 
     private final Calendar calendar = Calendar.getInstance();
+    private int weekDay,monthDay;
     private final Drawable highlightDrawable;
     private static final int color = Color.parseColor("#e0e0e0");
 
@@ -34,14 +35,14 @@ public class HighlightWeekendsDecorator implements DayViewDecorator {
     @Override
     public boolean shouldDecorate(CalendarDay day) {
         day.copyTo(calendar);
-        int weekDay = calendar.get(Calendar.DAY_OF_WEEK);
-        Log.e("second method", "call");
+        weekDay = calendar.get(Calendar.DAY_OF_WEEK);
+        monthDay= calendar.get(Calendar.DAY_OF_MONTH);
         return  weekDay == Calendar.SUNDAY;
-
     }
 
     @Override
     public void decorate(DayViewFacade view) {
         view.setBackgroundDrawable(highlightDrawable);
+
     }
 }

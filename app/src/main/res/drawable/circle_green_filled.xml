@@ -5,7 +5,7 @@
         android:width="50dp"
         android:height="50dp"/>
     <gradient
-        android:startColor="@color/active_green"
-        android:endColor="@color/active_green"
+        android:startColor="@color/nliveo_green_colorPrimary"
+        android:endColor="@color/nliveo_green_colorPrimary"
         android:angle="270"/>
 </shape>
