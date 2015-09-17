@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="active_green">#48be81</color>
+    <color name="active_red">#F44336</color>
+    <color name="app_background">#ffeeeeee</color>
+</resources>

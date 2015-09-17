@@ -1,0 +1,72 @@
+<resources>
+
+    <!--Customize here the subject of your application-->
+    <style name="myTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/nliveo_green_colorPrimary</item>
+        <item name="colorPrimaryDark">@color/nliveo_green_colorPrimaryDark</item>
+    </style>
+
+    <!--Here will be the theme of the class that will extends NavigationLiveo-->
+    <style name="nLiveoDrawer" parent="Theme.nLiveo">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/nliveo_green_colorPrimary</item>
+        <item name="colorPrimaryDark">@color/nliveo_green_alpha_colorPrimaryDark</item>
+    </style>
+
+    <style name="MaterialAlertDialogTitleText">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:textColor">#000000</item>
+        <item name="android:textSize">25sp</item>
+        <item name="android:layout_marginBottom">@dimen/density_twenty</item>
+    </style>
+    <style name="MaterialAlertDialogMessageText">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:color">#808080</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:layout_marginBottom">@dimen/density_twenty</item>
+    </style>
+    <style name="MaterialAlertDialogButton">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:textColor">@color/nliveo_green_colorPrimary</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:layout_gravity">right|end</item>
+    </style>
+
+    <style name="TextViewLargeBlack">
+        <item name="android:textColor">@color/nliveo_black</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceLarge</item>
+    </style>
+    <style name="TextViewLargeGray">
+        <item name="android:textColor">@color/nliveo_blue_gray_colorPrimary</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+    </style>
+    <style name="TextViewSmallGreen">
+        <item name="android:textColor">@color/nliveo_green_colorPrimary</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceSmall</item>
+    </style>
+
+    <style name="horizontal_rule">
+        <item name="android:layout_marginTop">@dimen/density_ten</item>
+        <item name="android:layout_marginBottom">@dimen/density_ten</item>
+        <item name="android:background">@color/nliveo_gray</item>
+        <item name="android:layout_height">2px</item>
+        <item name="android:layout_width">fill_parent</item>
+    </style>
+    <style name="QuestionBulletGray">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:background">@drawable/circle_gray_border</item>
+    </style>
+</resources>

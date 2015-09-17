@@ -1,0 +1,81 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_background"
+    android:padding="@dimen/density_fifteen">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/density_twenty_five"
+        android:orientation="vertical">
+        <TextView
+            android:text="PHYSICS"
+            android:id="@+id/txtPhysicsKeyAtSyllabus"
+            style="@style/TextViewSmallGreen"/>
+        <View style="@style/horizontal_rule"/>
+        <TextView
+            android:text="1 Mechanics"
+            android:id="@+id/txtSubjectValueMechanicsAtSyllabus"
+            style="@style/TextViewLargeBlack"
+            android:textStyle="normal"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/density_twenty_five"
+        android:orientation="vertical">
+        <TextView
+            android:text="CHEMISTRY"
+            android:id="@+id/txtChemistryKeyAtSyllabus"
+            style="@style/TextViewSmallGreen"/>
+        <View style="@style/horizontal_rule"/>
+        <TextView
+            android:text="1 Mole Concept"
+            android:id="@+id/txtSubjectValueChemistryAtSyllabus"
+            style="@style/TextViewLargeBlack"
+            android:textStyle="normal"/>
+        <TextView
+            android:text="2 Atomic Structure"
+            android:id="@+id/txtSubjectValuesecondChemistryAtSyllabus"
+            style="@style/TextViewLargeBlack"
+            android:textStyle="normal"/>
+        <TextView
+            android:text="3 Periodic Table"
+            android:id="@+id/txtSubjectValuethirdChemistryAtSyllabus"
+            style="@style/TextViewLargeBlack"
+            android:textStyle="normal"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/density_twenty_five"
+        android:orientation="vertical">
+        <TextView
+            android:text="MATH"
+            android:id="@+id/txtMathKeyAtSyllabus"
+            style="@style/TextViewSmallGreen"/>
+        <View style="@style/horizontal_rule"/>
+
+        <TextView
+            android:text="1 Function"
+            android:id="@+id/txtSubjectValueMathAtSyllabus"
+            style="@style/TextViewLargeBlack"
+            android:textStyle="normal"/>
+        <TextView
+            android:text="2 Fundamental of Mathematics"
+            android:id="@+id/txtSubjectValuesecondMathAtSyllabus"
+            style="@style/TextViewLargeBlack"
+            android:textStyle="normal"/>
+        <TextView
+            android:text="3 Periodic Table"
+            android:id="@+id/txtSubjectValuethirdMathAtSyllabus"
+            style="@style/TextViewLargeBlack"
+            android:textStyle="normal"/>
+
+        </LinearLayout>
+</LinearLayout>

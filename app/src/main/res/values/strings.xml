@@ -1,0 +1,64 @@
+<resources>
+    <string name="app_name">Ed Tech Guy</string>
+    <string name="content_description">Ed Tech Guy Images</string>
+    <string name="facebook_app_id">1612440855697627</string>
+    <string name="key_hash">/NGdIZJKtxGfQkYRhhmTnQAKv4E=</string>
+
+    <!-- Popup Box-->
+    <string name="dummy_message">Please connect to the internet. then give it another shot.</string>
+    <string name="dummy_title">Alert Title</string>
+    <string name="ok">OK</string>
+
+    <!--Drawer Menus-->
+    <string name="home">Home</string>
+    <string name="tests">Tests</string>
+    <string name="reports">Reports</string>
+    <string name="message">Message</string>
+    <string name="calender">Calender</string>
+    <string name="categories">Categories</string>
+    <string name="help_and_support">Help &amp; Support</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="settings">Settings</string>
+
+    <!--Action Bar-->
+    <string name="add">Add</string>
+    <string name="search">Search</string>
+
+    <!--Tabs-->
+    <string name="missed">Missed</string>
+    <string name="attempted">Attempted</string>
+    <string name="upcoming">Upcoming</string>
+
+    <!-- Toast -->
+    <string name="open_user_profile">Open user profile</string>
+    <string name="open_settings">Open settings</string>
+
+    <string name="drawer_open">Open drawer navigation</string>
+    <string name="drawer_close">Navigation drawer Close</string>
+
+    <string-array name="custom_weekdays">
+        <item>Su</item>
+        <item>M</item>
+        <item>Tu</item>
+        <item>W</item>
+        <item>Th</item>
+        <item>F</item>
+        <item>Sa</item>
+    </string-array>
+
+    <string-array name="custom_months">
+        <item>JAN</item>
+        <item>FEB</item>
+        <item>MAR</item>
+        <item>APR</item>
+        <item>MAY</item>
+        <item>JUN</item>
+        <item>JUL</item>
+        <item>AUG</item>
+        <item>SEP</item>
+        <item>OCT</item>
+        <item>NOV</item>
+        <item>DEC</item>
+    </string-array>
+
+</resources>

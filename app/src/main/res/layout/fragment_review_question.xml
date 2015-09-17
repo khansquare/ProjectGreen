@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/density_fifteen"
+    android:background="@color/app_background">
+    <TextView
+        style="@style/TextViewLargeBlack"
+        android:layout_marginBottom="@dimen/density_twenty"
+        android:text="The difference between aldol condensation and Cannizaro's reaction is that:"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="@dimen/density_ten"
+        android:paddingBottom="@dimen/density_ten">
+        <TextView
+            android:text="A"
+            style="@style/QuestionBulletGray"
+            android:background="@drawable/circle_green_border"/>
+        <TextView
+            style="@style/TextViewLargeGray"
+            android:layout_width="0dp"
+            android:layout_weight="9"
+            android:layout_marginLeft="@dimen/density_fifteen"
+            android:layout_marginStart="@dimen/density_fifteen"
+            android:text="the former takes place in the presence of a--H-atom"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="@dimen/density_ten"
+        android:paddingBottom="@dimen/density_ten">
+        <TextView
+            android:text="B"
+            style="@style/QuestionBulletGray"/>
+        <TextView
+            style="@style/TextViewLargeGray"
+            android:layout_width="0dp"
+            android:layout_weight="9"
+            android:layout_marginLeft="@dimen/density_fifteen"
+            android:layout_marginStart="@dimen/density_fifteen"
+            android:text="the former takes place in the absence of a--H-atom"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="@dimen/density_ten"
+        android:paddingBottom="@dimen/density_ten">
+        <TextView
+            android:text="C"
+            style="@style/QuestionBulletGray"/>
+        <TextView
+            style="@style/TextViewLargeGray"
+            android:layout_width="0dp"
+            android:layout_weight="9"
+            android:layout_marginLeft="@dimen/density_fifteen"
+            android:layout_marginStart="@dimen/density_fifteen"
+            android:text="the former takes place in the presence of B-H-atom"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="@dimen/density_ten"
+        android:paddingBottom="@dimen/density_ten">
+        <TextView
+            android:text="D"
+            style="@style/QuestionBulletGray"
+            android:background="@drawable/circle_red_border"/>
+        <TextView
+            style="@style/TextViewLargeGray"
+            android:layout_width="0dp"
+            android:layout_weight="9"
+            android:layout_marginLeft="@dimen/density_fifteen"
+            android:layout_marginStart="@dimen/density_fifteen"
+            android:text="none of the above"/>
+    </LinearLayout>
+</LinearLayout>

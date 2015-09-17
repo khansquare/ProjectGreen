@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/app_background"
+    android:weightSum="10"
+    android:padding="@dimen/density_fifteen">
+    <TextView
+        android:text="Matter in our surroundings"
+        android:id="@+id/txtReportTitle"
+        style="@style/TextViewLargeBlack"
+        android:layout_height="0dp"
+        android:layout_weight="0.7"/>
+    <TextView
+        android:text="26 JANUARY 2015 AT 01:00 PM"
+        android:id="@+id/txtReportDate"
+        style="@style/TextViewSmallGreen"
+        android:layout_height="0dp"
+        android:layout_weight="0.5"/>
+    <lecho.lib.hellocharts.view.PieChartView
+        android:id="@+id/pieChartAnalytics"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="6.8"
+        android:gravity="center"
+        android:numColumns="2"
+        android:padding="7dp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:weightSum="3"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+            <View
+                android:id="@+id/viewCorrect"
+                android:layout_marginRight="@dimen/density_five"
+                android:layout_width="@dimen/density_fourty"
+                android:layout_height="match_parent"
+                android:background="#99CC00" />
+            <TextView
+                android:text="Correct Questions"
+                style="@style/TextViewLargeBlack"
+                android:textColor="#ff505050"
+                android:textStyle="normal"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="2dp"
+            android:orientation="horizontal">
+            <View
+                android:id="@+id/viewIncorrect"
+                android:layout_marginRight="@dimen/density_five"
+                android:layout_width="@dimen/density_fourty"
+                android:layout_height="match_parent"
+                android:background="#FF4444" />
+            <TextView
+                android:text="Incorrect Questions"
+                style="@style/TextViewLargeBlack"
+                android:textColor="#ff505050"
+                android:textStyle="normal"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+            <View
+                android:id="@+id/viewUnattempted"
+                android:layout_marginRight="@dimen/density_five"
+                android:layout_width="@dimen/density_fourty"
+                android:layout_height="match_parent"
+                android:background="#DFDFDF" />
+            <TextView
+                android:text="Unattempted Questions"
+                style="@style/TextViewLargeBlack"
+                android:textColor="#ff505050"
+                android:textStyle="normal"/>
+        </LinearLayout>
+
+
+    </LinearLayout>
+</LinearLayout>

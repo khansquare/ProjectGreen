@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.getbase.floatingactionbutton.FloatingActionButton
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/btnFloat"
+    android:layout_width="30dp"
+    android:layout_height="30dp"
+    android:layout_marginLeft="6dp"
+    fab:fab_colorNormal="#4CAF50"
+    fab:fab_colorPressed="#ff787878"
+  />

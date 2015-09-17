@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/app_background"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ListView
+            android:id="@+id/listViewTests"
+            android:clickable="true"
+            android:divider="@null"
+            android:scrollbars="none"
+            android:padding="@dimen/density_ten"
+            android:listSelector="@android:color/transparent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </RelativeLayout>
+    <TextView
+        android:id="@+id/txtEmptyListLabel"
+        android:textSize="25sp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:textColor="@color/nliveo_blue_gray_colorPrimary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="You have not attempted any test yet." />
+</android.support.design.widget.CoordinatorLayout>

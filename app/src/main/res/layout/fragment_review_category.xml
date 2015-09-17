@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/density_thirty">
+ <TextView
+     android:id="@+id/txtOne"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:background="@drawable/shape_circle_red"
+     android:textSize="20sp"
+     android:textColor="#fff"
+     android:text="1"
+     android:gravity="center"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_circle_red"
+        android:textSize="20sp"
+        android:textColor="#fff"
+        android:layout_marginLeft="@dimen/density_fifteen"
+        android:text="2"
+        android:gravity="center"
+        android:id="@+id/txtTwo" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_circle_red"
+        android:textSize="20sp"
+        android:textColor="#fff"
+        android:layout_marginLeft="@dimen/density_fifteen"
+        android:text="3"
+        android:gravity="center"
+        android:id="@+id/txtThree" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_circle_red"
+        android:textSize="20sp"
+        android:textColor="#fff"
+        android:layout_marginLeft="@dimen/density_fifteen"
+        android:text="4"
+        android:gravity="center"
+        android:id="@+id/txtFour" />
+
+</LinearLayout>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <gradient
+        android:startColor="@color/active_red"
+        android:endColor="@color/active_red"
+        android:angle="270"/>
+    <corners android:topLeftRadius="@dimen/density_five"
+        android:topRightRadius="@dimen/density_five"/>
+</shape>
+<!--
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="@color/nliveo_red_colorPrimary"/>
+    <corners android:topLeftRadius="@dimen/density_five"
+        android:topRightRadius="@dimen/density_five"/>
+</shape>-->
