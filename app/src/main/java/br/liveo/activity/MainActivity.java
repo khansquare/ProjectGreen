@@ -8,9 +8,11 @@ import android.view.View;
 
 import br.liveo.Model.HelpLiveo;
 import br.liveo.fragment.CalenderFragment;
-import br.liveo.fragment.FragmentHelpAndSupport;
+import br.liveo.fragment.HelpAndSupportFragment;
 import br.liveo.fragment.HomeFragment;
 
+import br.liveo.fragment.MessageFragment;
+import br.liveo.fragment.ReportsFragment;
 import br.liveo.fragment.TestListPagerFragment;
 import br.liveo.interfaces.OnItemClickListener;
 import br.liveo.interfaces.OnPrepareOptionsMenuLiveo;
@@ -19,7 +21,15 @@ import br.liveo.navigationliveo.NavigationLiveo;
 import br.liveo.navigationviewpagerliveo.R;
 import br.liveo.util.GeneralUtils;
 import br.liveo.util.SharedPreferencesUtil;
-
+/**
+ * Author       :   Mohsin Khan
+ * Designation  :   Android Developer
+ * E-mail       :   khan.square@gmail.com
+ * Company      :   Parasme Softwares & Technology
+ * Date         :   September 5 , 2015
+ * Purpose      :   Root Activity of the app
+ * Description  :   Detailed Description...
+ */
 public class MainActivity extends NavigationLiveo implements OnItemClickListener {
     private HelpLiveo mHelpLiveo;
     private GeneralUtils generalUtils;
@@ -71,11 +81,17 @@ public class MainActivity extends NavigationLiveo implements OnItemClickListener
             case 2:
                 mFragment = new TestListPagerFragment();
                 break;
+            case 3:
+                mFragment = new ReportsFragment();
+                break;
+            case 4:
+                mFragment = new MessageFragment();
+                break;
             case 5:
                 mFragment = new CalenderFragment();
                 break;
             case 8:
-                mFragment = new FragmentHelpAndSupport();
+                mFragment = new HelpAndSupportFragment();
                 break;
             default:
                 mFragment = new HomeFragment();

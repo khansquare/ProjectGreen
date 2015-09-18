@@ -2,6 +2,7 @@ package br.liveo.fragment;
 
 
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,7 +34,7 @@ public class ReviewCategoryFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_review_category, container, false);
         rootView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
         GridView gridViewQuestionBullets = (GridView) rootView.findViewById(R.id.gridViewQuestionBullets);
-        ArrayList<Bullet> bullets = new ArrayList<>();
+        final ArrayList<Bullet> bullets = new ArrayList<>();
         if (getArguments().getString("FROM").equals("CORRECT")) {
             bullets.add(new Bullet("1", GREEN));
             bullets.add(new Bullet("2", GREEN));
@@ -62,7 +63,13 @@ public class ReviewCategoryFragment extends Fragment {
         gridViewQuestionBullets.setOnItemClickListener(new GridView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container, new ReviewCategoryPagerFragment())
+                Bundle bundle  = new Bundle();
+                bundle.putInt("SIZE", bullets.size());
+                bundle.putInt("POSITION",position);
+                bundle.putParcelableArrayList("DATA", bullets);
+                ReviewCategoryPagerFragment reviewCategoryPagerFragment = new ReviewCategoryPagerFragment();
+                reviewCategoryPagerFragment.setArguments(bundle);
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container, reviewCategoryPagerFragment)
                         .addToBackStack(MainActivity.MAIN_FRAGMENT_STACK).commit();
             }
         });

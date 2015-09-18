@@ -1,5 +1,8 @@
 package br.liveo.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 /**
  * Author       :   Mohsin Khan
  * Designation  :   Android Developer
@@ -9,7 +12,7 @@ package br.liveo.model;
  * Purpose      :   For questions circles, we are creating this model,
  * Description  :   Detailed Description...
  */
-public class Bullet {
+public class Bullet implements Parcelable {
     private String text;
     private int color;
 
@@ -24,5 +27,15 @@ public class Bullet {
 
     public int getColor() {
         return color;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+
     }
 }

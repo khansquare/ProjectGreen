@@ -3,22 +3,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#4CAF50"
-    android:paddingRight="10dp"
-    android:paddingLeft="50dp">
-
+    android:background="@color/nliveo_green_colorPrimary"
+    android:paddingTop="@dimen/density_fifteen"
+    android:paddingBottom="@dimen/density_fifteen"
+    android:paddingRight="@dimen/density_ten"
+    android:paddingLeft="@dimen/density_fourty">
     <TextView
         android:id="@+id/textTitle"
-        android:textColor="#fff"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <TextView
-        android:id="@+id/textHint"
-        android:textColor="#fff"
+        android:textColor="#FFF"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall" />
-
 </LinearLayout>

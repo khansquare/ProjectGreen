@@ -46,11 +46,11 @@ public class TestAnalyticsFragment extends Fragment {
         int numValues = 3;
 
         List<SliceValue> values = new ArrayList<>();
-        SliceValue sliceValueCorrect = new SliceValue(10, ChartUtils.COLOR_GREEN);
+        SliceValue sliceValueCorrect = new SliceValue(10, Color.parseColor("#48be81"));
         values.add(sliceValueCorrect);
-        SliceValue sliceValueIncorrect = new SliceValue(2, ChartUtils.COLOR_RED);
+        SliceValue sliceValueIncorrect = new SliceValue(2, Color.parseColor("#F44336"));
         values.add(sliceValueIncorrect);
-        SliceValue sliceValueUnattempted = new SliceValue(8, ChartUtils.DEFAULT_COLOR);
+        SliceValue sliceValueUnattempted = new SliceValue(8, Color.parseColor("#40000000"));
         values.add(sliceValueUnattempted);
 
         data = new PieChartData(values);
@@ -62,7 +62,7 @@ public class TestAnalyticsFragment extends Fragment {
         data.setCenterText1Color(Color.parseColor("#808080"));
         data.setCenterText1FontSize(70);
         chart.setPieChartData(data);
-
+        chart.animate();
         return rootView;
     }
 

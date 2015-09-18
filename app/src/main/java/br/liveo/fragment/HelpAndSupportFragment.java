@@ -22,31 +22,32 @@ package br.liveo.fragment;
  * where each group has from 1 to 100 children (so the first group will have one
  * child, the second will have two children and so on...).
  */
-public class FragmentHelpAndSupport extends Fragment {
+public class HelpAndSupportFragment extends Fragment {
     private AnimatedExpandableListView listView;
     private ExampleAdapter adapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_helpandsupport, container, false);
-        String [] questions = {"How Start Test ?","How See Result?","How See Question Answers?"};
-        String [] answer = {"A1","A2","A3"};
+        String [] questions = {"How can I start test?",
+                "How to get results?",
+                "Can I get detailed syllabus attached with the test schedule?",
+                "How to ..."};
+        String [] answer = {"It is easy to start test but keep it mind that you can only attempt those tests displayed on your home screen with the tag LIVE NOW. Just click on the live test and you will get test overview having the button 'Take Test'. By clicking on this key, you will be redirected to the test screen.",
+                "If you successfully attempt the test then your test will be displayed in Menu > Tests > Attempted. Here you can see test overview, syllabus and reports. In the reports, you can see your score, percentage, total attempted questions and correct answers. To get more analytical information about your test hit ANALYTICS button and see a pie chart that implies your performance in the test. At review screen, you can get final score and class average also.",
+                "It is easy to start test but keep it mind that you can only attempt those tests displayed on your home screen with the tag LIVE NOW. Just click on the live test and you will get test overview having the button 'Take Test'. By clicking on this key, you will be redirected to the test screen.",
+                "..."};
         List<GroupItem> items = new ArrayList<GroupItem>();
 
         // Populate our list with groups and it's children
-        for(int i = 1; i <= 3; i++) {
+        for(int i = 0; i < questions.length; i++) {
             GroupItem item = new GroupItem();
-
-            item.title = questions[i-1];
-
+            item.title = questions[i];
             for(int j = 0; j < 1; j++) {
                 ChildItem child = new ChildItem();
-                child.title = answer[i-1];
-//                child.hint = "Too awesome";
-
+                child.title = answer[i];
                item.items.add(child);
             }
-
             items.add(item);
         }
 
@@ -55,16 +56,9 @@ public class FragmentHelpAndSupport extends Fragment {
 
         listView = (AnimatedExpandableListView) rootView.findViewById(R.id.listView);
         listView.setAdapter(adapter);
-
-        // In order to show animations, we need to use a custom click handler
-        // for our ExpandableListView.
         listView.setOnGroupClickListener(new OnGroupClickListener() {
-
             @Override
             public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
-                // We call collapseGroupWithAnimation(int) and
-                // expandGroupWithAnimation(int) to animate group
-                // expansion/collapse.
                 if (listView.isGroupExpanded(groupPosition)) {
                     listView.collapseGroupWithAnimation(groupPosition);
                 } else {
@@ -72,7 +66,6 @@ public class FragmentHelpAndSupport extends Fragment {
                 }
                 return true;
             }
-
         });
         return  rootView;
     }
@@ -84,12 +77,10 @@ public class FragmentHelpAndSupport extends Fragment {
 
     private static class ChildItem {
         String title;
-        String hint;
     }
 
     private static class ChildHolder {
         TextView title;
-        TextView hint;
     }
 
     private static class GroupHolder {
@@ -130,15 +121,12 @@ public class FragmentHelpAndSupport extends Fragment {
                 holder = new ChildHolder();
                 convertView = inflater.inflate(R.layout.layout_exp_child, parent, false);
                 holder.title = (TextView) convertView.findViewById(R.id.textTitle);
-                holder.hint = (TextView) convertView.findViewById(R.id.textHint);
                 convertView.setTag(holder);
             } else {
                 holder = (ChildHolder) convertView.getTag();
             }
 
             holder.title.setText(item.title);
-            holder.hint.setText(item.hint);
-
             return convertView;
         }
 
@@ -191,5 +179,4 @@ public class FragmentHelpAndSupport extends Fragment {
         }
 
     }
-
 }

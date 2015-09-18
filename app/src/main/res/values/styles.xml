@@ -40,6 +40,13 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:textAppearance">?android:attr/textAppearanceLarge</item>
     </style>
+    <style name="TextViewMediumGray">
+        <item name="android:textColor">@color/nliveo_blue_gray_colorPrimary</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+    </style>
     <style name="TextViewLargeGray">
         <item name="android:textColor">@color/nliveo_blue_gray_colorPrimary</item>
         <item name="android:layout_height">wrap_content</item>

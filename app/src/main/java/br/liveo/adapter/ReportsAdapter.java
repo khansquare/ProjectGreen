@@ -76,7 +76,20 @@ public class ReportsAdapter extends BaseAdapter {
         }
         viewHolder.progressBar.setMax(testReports.get(position).getMax());
         viewHolder.progressBar.setSecondaryProgress(testReports.get(position).getMax());
-        viewHolder.progressBar.setProgress(testReports.get(position).getProgress());
+        final ProgressBar pb = viewHolder.progressBar;
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                for (int i = 0; i < testReports.get(position).getProgress(); i++) {
+                    pb.setProgress(i);
+                    try {
+                        Thread.sleep(300);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }).start();
     	return convertView;
     }
 	private class ViewHolder {

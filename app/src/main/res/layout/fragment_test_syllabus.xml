@@ -16,10 +16,9 @@
             style="@style/TextViewSmallGreen"/>
         <View style="@style/horizontal_rule"/>
         <TextView
-            android:text="1 Mechanics"
+            android:text="1. Mechanics"
             android:id="@+id/txtSubjectValueMechanicsAtSyllabus"
-            style="@style/TextViewLargeBlack"
-            android:textStyle="normal"/>
+            style="@style/TextViewMediumGray"/>
     </LinearLayout>
 
     <LinearLayout
@@ -33,20 +32,17 @@
             style="@style/TextViewSmallGreen"/>
         <View style="@style/horizontal_rule"/>
         <TextView
-            android:text="1 Mole Concept"
+            android:text="1. Mole Concept"
             android:id="@+id/txtSubjectValueChemistryAtSyllabus"
-            style="@style/TextViewLargeBlack"
-            android:textStyle="normal"/>
+            style="@style/TextViewMediumGray"/>
         <TextView
-            android:text="2 Atomic Structure"
+            android:text="2. Atomic Structure"
             android:id="@+id/txtSubjectValuesecondChemistryAtSyllabus"
-            style="@style/TextViewLargeBlack"
-            android:textStyle="normal"/>
+            style="@style/TextViewMediumGray"/>
         <TextView
-            android:text="3 Periodic Table"
+            android:text="3. Periodic Table"
             android:id="@+id/txtSubjectValuethirdChemistryAtSyllabus"
-            style="@style/TextViewLargeBlack"
-            android:textStyle="normal"/>
+            style="@style/TextViewMediumGray"/>
 
     </LinearLayout>
 
@@ -62,20 +58,17 @@
         <View style="@style/horizontal_rule"/>
 
         <TextView
-            android:text="1 Function"
+            android:text="1. Function"
             android:id="@+id/txtSubjectValueMathAtSyllabus"
-            style="@style/TextViewLargeBlack"
-            android:textStyle="normal"/>
+            style="@style/TextViewMediumGray"/>
         <TextView
-            android:text="2 Fundamental of Mathematics"
+            android:text="2. Fundamental of Mathematics"
             android:id="@+id/txtSubjectValuesecondMathAtSyllabus"
-            style="@style/TextViewLargeBlack"
-            android:textStyle="normal"/>
+            style="@style/TextViewMediumGray"/>
         <TextView
-            android:text="3 Periodic Table"
+            android:text="3. Periodic Table"
             android:id="@+id/txtSubjectValuethirdMathAtSyllabus"
-            style="@style/TextViewLargeBlack"
-            android:textStyle="normal"/>
+            style="@style/TextViewMediumGray"/>
 
         </LinearLayout>
 </LinearLayout>

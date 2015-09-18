@@ -41,11 +41,11 @@
             <View
                 android:id="@+id/viewCorrect"
                 android:layout_marginRight="@dimen/density_five"
-                android:layout_width="@dimen/density_fourty"
-                android:layout_height="match_parent"
-                android:background="#99CC00" />
+                android:layout_width="@dimen/density_thirty"
+                android:layout_height="@dimen/density_thirty"
+                android:background="@drawable/circle_green_filled" />
             <TextView
-                android:text="Correct Questions"
+                android:text="...Correct Questions"
                 style="@style/TextViewLargeBlack"
                 android:textColor="#ff505050"
                 android:textStyle="normal"/>
@@ -61,11 +61,11 @@
             <View
                 android:id="@+id/viewIncorrect"
                 android:layout_marginRight="@dimen/density_five"
-                android:layout_width="@dimen/density_fourty"
-                android:layout_height="match_parent"
-                android:background="#FF4444" />
+                android:layout_width="@dimen/density_thirty"
+                android:layout_height="@dimen/density_thirty"
+                android:background="@drawable/circle_red_filled" />
             <TextView
-                android:text="Incorrect Questions"
+                android:text="...Incorrect Questions"
                 style="@style/TextViewLargeBlack"
                 android:textColor="#ff505050"
                 android:textStyle="normal"/>
@@ -78,11 +78,11 @@
             <View
                 android:id="@+id/viewUnattempted"
                 android:layout_marginRight="@dimen/density_five"
-                android:layout_width="@dimen/density_fourty"
-                android:layout_height="match_parent"
-                android:background="#DFDFDF" />
+                android:layout_width="@dimen/density_thirty"
+                android:layout_height="@dimen/density_thirty"
+                android:background="@drawable/circle_gray_filled" />
             <TextView
-                android:text="Unattempted Questions"
+                android:text="...Unattempted Questions"
                 style="@style/TextViewLargeBlack"
                 android:textColor="#ff505050"
                 android:textStyle="normal"/>

@@ -27,7 +27,7 @@ public class AnimatedExpandableListView extends ExpandableListView {
 	private static final String TAG = AnimatedExpandableListAdapter.class.getSimpleName();
 
 
-    private static final int ANIMATION_DURATION = 600;
+    private static final int ANIMATION_DURATION = 500;
 
     private AnimatedExpandableListAdapter adapter;
 

@@ -7,6 +7,7 @@ import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,9 +19,11 @@ import java.util.List;
 
 import br.liveo.adapter.TabPagerItem;
 import br.liveo.adapter.ViewPagerAdapter;
+import br.liveo.model.Bullet;
 import br.liveo.navigationviewpagerliveo.R;
 
 public class ReviewCategoryPagerFragment extends Fragment {
+    private ArrayList<Bullet> bullets;
 	private List<TabPagerItem> mTabs = new ArrayList<>();
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -29,10 +32,11 @@ public class ReviewCategoryPagerFragment extends Fragment {
     }
 
     private void createTabPagerItem(){
-        Bundle bundle[] = new Bundle[10];
+        bullets = getArguments().getParcelableArrayList("DATA");
+        Bundle bundle[] = new Bundle[getArguments().getInt("SIZE")];
         for (int i = 0; i < bundle.length; i++) {
             bundle[i] = new Bundle();
-            bundle[i].putString("FROM", "UNANSWERED");
+            //bundle[i].putString("FROM", "UNANSWERED");
             ReviewQuestionFragment reviewQuestionFragment = new ReviewQuestionFragment();
             reviewQuestionFragment.setArguments(bundle[i]);
             mTabs.add(new TabPagerItem(String.valueOf(i), reviewQuestionFragment));
@@ -53,31 +57,40 @@ public class ReviewCategoryPagerFragment extends Fragment {
         mViewPager.setAdapter(new ViewPagerAdapter(getChildFragmentManager(), mTabs));
 
         TabLayout mSlidingTabLayout = (TabLayout) view.findViewById(R.id.tabLayout);
-        mSlidingTabLayout.setBackgroundColor(Color.parseColor("#eeeeee"));
+        mSlidingTabLayout.setBackgroundColor(Color.parseColor("#EEEEEE"));
         mSlidingTabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
         mSlidingTabLayout.setupWithViewPager(mViewPager);
+        mSlidingTabLayout.getTabAt(getArguments().getInt("POSITION")).select();
+        mSlidingTabLayout.setTop(20);
+        mSlidingTabLayout.setSoundEffectsEnabled(true);
+
         for (int i = 0; i < mSlidingTabLayout.getTabCount(); i++) {
             TabLayout.Tab tab = mSlidingTabLayout.getTabAt(i);
-            View v = getActivity().getLayoutInflater().inflate(R.layout.layout_bullet, null, false);
-            ((TextView)v.findViewById(R.id.txtQuestionBullet)).setText(String.valueOf(i));
-            tab.setCustomView(v);
+            View convertView = getActivity().getLayoutInflater().inflate(R.layout.layout_text, null, false);
+            ((TextView) convertView.findViewById(R.id.txtQuestionNumber)).setText(bullets.get(i).getText());
+            tab.setCustomView(convertView);
         }
+
         mSlidingTabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-                //adapter.setTabView(tab.getPosition(), true);
+                /*convertView = getActivity().getLayoutInflater().inflate(R.layout.layout_bullet, null, false);
+                tab.setCustomView(convertView);*/
             }
 
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
-                //adapter.setTabView(tab.getPosition(), false);
+                /*convertView = getActivity().getLayoutInflater().inflate(R.layout.layout_text, null, false);
+                tab.setCustomView(convertView);*/
             }
 
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
-
+                /*v = getActivity().getLayoutInflater().inflate(R.layout.layout_bullet, null, false);
+                tab.setCustomView(v);*/
             }
         });
+
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             mSlidingTabLayout.setElevation(10);
         }
