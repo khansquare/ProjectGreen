@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingTop="@dimen/density_seventy"
     android:paddingBottom="@dimen/density_seventy"
     android:paddingLeft="@dimen/density_twenty_five"
-    android:paddingRight="@dimen/density_twenty_five"
-    android:background="@drawable/login_background" >
+    android:paddingRight="@dimen/density_twenty_five">
     <ViewFlipper
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -16,6 +14,9 @@
         android:id="@+id/viewFlipper"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" >
+
+        <!--Email-->
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -38,6 +39,7 @@
                 android:layout_weight="1"
                 android:layout_height="0dp"
                 android:hint="Enter Email"
+                android:singleLine="true"
                 android:layout_marginBottom="@dimen/density_ten"
                 android:layout_marginLeft="@dimen/density_fifteen"
                 android:layout_marginRight="@dimen/density_fifteen"/>
@@ -59,7 +61,6 @@
                 android:layout_height="0dp"
                 android:orientation="horizontal"
                 android:gravity="center"
-
                 android:layout_weight="3.5"
                 android:paddingLeft="50dp"
                 android:paddingRight="50dp"
@@ -96,6 +97,8 @@
             </LinearLayout>
         </LinearLayout>
 
+        <!--Password-->
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -129,7 +132,7 @@
                 android:layout_weight="1"
                 android:layout_height="0dp"
                 android:hint="Password"
-                android:layout_marginTop="@dimen/density_ten"
+                android:singleLine="true"
                 android:layout_marginBottom="@dimen/density_ten"
                 android:layout_marginLeft="@dimen/density_fifteen"
                 android:layout_marginRight="@dimen/density_fifteen"/>
@@ -140,6 +143,7 @@
                 android:layout_marginLeft="@dimen/density_fifteen"
                 android:layout_marginRight="@dimen/density_fifteen">
                 <TextView
+                    android:id="@+id/txtForgetPassword"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Forget Password"
@@ -156,6 +160,64 @@
                     android:layout_alignParentRight="true"
                     android:layout_alignParentEnd="true" />
             </RelativeLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2.5"/>
+        </LinearLayout>
+
+        <!--Forget-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="#fff"
+            android:weightSum="10">
+            <ImageButton
+                android:id="@+id/btnBackToLogin"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:scaleType="fitStart"
+                android:padding="@dimen/density_five"
+                android:background="@color/nliveo_green_colorPrimaryDark"
+                android:src="@drawable/abc_ic_ab_back_mtrl_am_alpha"
+                android:layout_weight="1"/>
+            <TextView
+                android:id="@+id/txtTitleOnForgetPassword"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="@color/nliveo_green_colorPrimaryDark"
+                android:gravity="bottom"
+                android:layout_weight="3.5"
+                android:text="Forget Password"
+                android:padding="@dimen/density_twenty"
+                android:layout_marginBottom="@dimen/density_twenty"
+                android:textColor="#fff"
+                android:textSize="20sp"/>
+            <EditText
+                android:id="@+id/editEmailOnForgetPassword"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="0dp"
+                android:hint="Email Address"
+                android:inputType="textEmailAddress"
+                android:singleLine="true"
+                android:layout_marginBottom="@dimen/density_ten"
+                android:layout_marginLeft="@dimen/density_fifteen"
+                android:layout_marginRight="@dimen/density_fifteen"/>
+            <Button
+                android:id="@+id/btnLoginOnForgetPassword"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_gravity="end"
+                android:text="SUBMIT"
+                android:textColor="#fff"
+                android:textStyle="bold"
+                android:layout_marginLeft="@dimen/density_fifteen"
+                android:layout_marginRight="@dimen/density_fifteen"
+                android:background="@color/nliveo_green_colorPrimaryDark"/>
             <View
                 android:layout_width="match_parent"
                 android:layout_height="0dp"

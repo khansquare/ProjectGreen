@@ -108,10 +108,12 @@ public class LoginActivity extends ActionBarActivity implements GoogleApiClient.
         initializeAllElements();
         setBtnNextListener();
         setBtnBackListener();
+        setBtnBackToLoginListener();
         setBtnLoginListener();
         setBtnGoogleListener();
         setBtnFacebookListener();
         setBtnTwitterListener();
+        setOnForgetPasswordListener();
     }
 
     private void initializeAllElements() {
@@ -181,12 +183,33 @@ public class LoginActivity extends ActionBarActivity implements GoogleApiClient.
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (editEmail.getText().toString().matches ("^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$")) {
-                    txtEmail.setText(editEmail.getText().toString());
-                    viewFlipper.showNext();
+                /*if (editEmail.getText().toString().matches ("^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$")) {
+
                 } else {
                     editEmail.setError("Please enter a valid email address");
-                }
+                }*/
+                txtEmail.setText(editEmail.getText().toString());
+                viewFlipper.showNext();
+            }
+        });
+    }
+
+    private void setOnForgetPasswordListener() {
+        findViewById(R.id.txtForgetPassword).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                viewFlipper.showNext();
+            }
+        });
+    }
+
+    private void setBtnBackToLoginListener() {
+        ImageButton btnBackToLogin = (ImageButton) findViewById(R.id.btnBackToLogin);
+        btnBackToLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                viewFlipper.showPrevious();
+                viewFlipper.showPrevious();
             }
         });
     }
