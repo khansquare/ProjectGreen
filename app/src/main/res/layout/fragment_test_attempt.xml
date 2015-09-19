@@ -1,88 +1,80 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity"
-    android:orientation="vertical"
-    android:background="#fff">
+    android:padding="@dimen/density_fifteen"
+    android:background="@color/app_background">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginTop="50dp">
+        android:orientation="vertical">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="3. Questions"
-            android:textColor="#6fbf4d"
-            android:textSize="23sp"
-            android:layout_marginLeft="30dp"
-            />
+            android:text="1. The difference between aldol condensation and Cannizaro's reaction is that:"
+            style="@style/TextViewLargeBlack"
+            android:layout_marginBottom="@dimen/density_twenty" />
         <RadioGroup
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_marginLeft="30dp"
             >
-
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="A"
-                android:layout_marginTop="20dp"
-                android:textColor="#6fbf4d"
-                android:textSize="20sp"/>
+                android:text="the former takes place in the presence of a--H-atom"
+                style="@style/TextViewLargeGray"/>
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#6fbf4d"
-                android:textSize="20sp"
+                style="@style/TextViewLargeGray"
                 android:layout_marginTop="10dp"
-                android:text="B"/>
+                android:text="the former takes place in the absence of a--H-atom"/>
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="C"
+                android:text="the former takes place in the presence of B-H-atom"
                 android:layout_marginTop="10dp"
-                android:textColor="#6fbf4d"
-                android:textSize="20sp"/>
+                style="@style/TextViewLargeGray"/>
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="D"
+                android:text="none of the above"
                 android:layout_marginTop="10dp"
-                android:textColor="#6fbf4d"
-                android:textSize="20sp"/>
+                style="@style/TextViewLargeGray"/>
 
         </RadioGroup>
     </LinearLayout>
-    <com.getbase.floatingactionbutton.FloatingActionButton
-        xmlns:fab="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/button_Submit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        fab:fab_icon="@drawable/ic_done_all_white_24dp"
-        fab:fab_colorNormal="#4CAF50"
-        fab:fab_colorPressed="#ff787878"
-        android:layout_marginBottom="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+
+
 
     <com.getbase.floatingactionbutton.FloatingActionButton
         xmlns:fab="http://schemas.android.com/apk/res-auto"
         android:id="@+id/button_previous"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/density_fourty"
         fab:fab_icon="@drawable/ic_reply_white_24dp"
         fab:fab_colorNormal="#4CAF50"
         fab:fab_colorPressed="#ff787878"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="16dp"
-        android:layout_marginLeft="16dp"/>
+       />
 
+    <com.getbase.floatingactionbutton.FloatingActionButton
+        xmlns:fab="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/button_next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/density_fourty"
+        fab:fab_icon="@drawable/ic_reply_white_24dp_right"
+        fab:fab_colorNormal="#4CAF50"
+        fab:fab_colorPressed="#ff787878"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
 
 </RelativeLayout>

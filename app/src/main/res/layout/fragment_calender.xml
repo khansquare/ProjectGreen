@@ -1,67 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/app_background"
-    android:orientation="vertical"
+
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="16dp">
+
+    android:padding="@dimen/density_fifteen">
     <com.prolificinteractive.materialcalendarview.MaterialCalendarView
         android:id="@+id/calendarView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
         app:mcv_arrowColor="@color/nliveo_green_colorPrimary"
         app:mcv_leftArrowMask="@drawable/ic_navigation_arrow_back"
         app:mcv_rightArrowMask="@drawable/ic_navigation_arrow_forward"
         app:mcv_selectionColor="@color/nliveo_green_colorPrimary"/>
 
-    <LinearLayout
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:weightSum="10">
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="5"
-        android:orientation="horizontal">
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:scaleType="fitStart"
-            android:src="@drawable/circle_red_filled"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Absent"
-            android:textSize="30sp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginLeft="@dimen/density_five"
-            android:layout_gravity="center"/>
-    </LinearLayout>
-
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="5"
-            android:orientation="horizontal"
-            android:layout_marginTop="@dimen/density_five">
-            <ImageView
-                android:layout_width="wrap_content"
-                android:scaleType="fitStart"
-                android:layout_height="wrap_content"
-                android:src="@drawable/circle_green_filled"/>
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <View
+                android:id="@+id/viewCorrect"
+                android:layout_marginRight="@dimen/density_five"
+                android:layout_width="@dimen/density_thirty"
+                android:layout_height="@dimen/density_thirty"
+                android:background="@drawable/circle_green_filled" />
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/density_five"
-                android:layout_marginBottom="3dp"
-                android:text="Present"
-                android:textSize="30sp" />/>
+                android:text="...Today"
+                style="@style/TextViewLargeBlack"
+                android:textColor="#ff505050"
+                android:textStyle="normal"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="2dp"
+            android:orientation="horizontal">
+            <View
+                android:id="@+id/viewIncorrect"
+                android:layout_marginRight="@dimen/density_five"
+                android:layout_width="@dimen/density_thirty"
+                android:layout_height="@dimen/density_thirty"
+                android:background="@drawable/circle_red_filled" />
+            <TextView
+                android:text="...Absent"
+                style="@style/TextViewLargeBlack"
+                android:textColor="#ff505050"
+                android:textStyle="normal"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <View
+                android:id="@+id/viewUnattempted"
+                android:layout_marginRight="@dimen/density_five"
+                android:layout_width="@dimen/density_thirty"
+                android:layout_height="@dimen/density_thirty"
+                android:background="@drawable/circle_gray_filled" />
+            <TextView
+                android:text="...Public Holiday"
+                style="@style/TextViewLargeBlack"
+                android:textColor="#ff505050"
+                android:textStyle="normal"/>
         </LinearLayout>
 
 
-       </LinearLayout>
+    </LinearLayout>
 
-</LinearLayout>
+</RelativeLayout>

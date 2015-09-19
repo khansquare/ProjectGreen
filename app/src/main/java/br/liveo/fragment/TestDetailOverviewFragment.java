@@ -55,7 +55,7 @@ public class TestDetailOverviewFragment extends Fragment {
         btnTakeTestAtOverview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container,  new FragmentQuestionTest())
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container,  new TestAttemptPagerFragment())
                         .addToBackStack(MainActivity.MAIN_FRAGMENT_STACK).commit();
             }
         });

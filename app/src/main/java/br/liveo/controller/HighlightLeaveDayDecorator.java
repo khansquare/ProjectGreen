@@ -19,30 +19,29 @@ import br.liveo.navigationviewpagerliveo.R;
  * Company      :   Parasme Softwares & Technology
  * Date         :   September 15 , 2015
  * Purpose      :   Home screen of the application
- * Description  :  Highlight Sundays with a background
+ * Description  :   Highlight Sundays with a background
  */
-public class HighlightWeekendsDecorator implements DayViewDecorator {
+public class HighlightLeaveDayDecorator implements DayViewDecorator {
 
     private final Calendar calendar = Calendar.getInstance();
-    private int weekDay,monthDay;
+    private int weekDay;
     private final Drawable highlightDrawable;
-    private static final int color = Color.parseColor("#e0e0e0");
 
-    public HighlightWeekendsDecorator(Context context) {
+    public HighlightLeaveDayDecorator(Context context) {
         highlightDrawable = context.getResources().getDrawable(R.drawable.circle_gray_filled);
     }
 
     @Override
     public boolean shouldDecorate(CalendarDay day) {
+        int a=day.getDay();
+      //  String s1 = String.valueOf(a);
+       // Log.e("daayyyyyy", s1);
         day.copyTo(calendar);
-        weekDay = calendar.get(Calendar.DAY_OF_WEEK);
-        monthDay= calendar.get(Calendar.DAY_OF_MONTH);
-        return  weekDay == Calendar.SUNDAY;
+       // weekDay = calendar.get(Calendar.DAY_OF_WEEK);
+        return  a==16;
     }
-
     @Override
     public void decorate(DayViewFacade view) {
         view.setBackgroundDrawable(highlightDrawable);
-
     }
 }
