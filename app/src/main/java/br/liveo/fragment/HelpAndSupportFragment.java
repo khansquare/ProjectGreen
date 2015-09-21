@@ -119,7 +119,7 @@ public class HelpAndSupportFragment extends Fragment {
             ChildItem item = getChild(groupPosition, childPosition);
             if (convertView == null) {
                 holder = new ChildHolder();
-                convertView = inflater.inflate(R.layout.layout_exp_child, parent, false);
+                convertView = inflater.inflate(R.layout.layout_help_exp_child, parent, false);
                 holder.title = (TextView) convertView.findViewById(R.id.textTitle);
                 convertView.setTag(holder);
             } else {
@@ -156,7 +156,7 @@ public class HelpAndSupportFragment extends Fragment {
             GroupItem item = getGroup(groupPosition);
             if (convertView == null) {
                 holder = new GroupHolder();
-                convertView = inflater.inflate(R.layout.layout_exp_parent, parent, false);
+                convertView = inflater.inflate(R.layout.layout_help_exp_parent, parent, false);
                 holder.title = (TextView) convertView.findViewById(R.id.textTitle);
                 convertView.setTag(holder);
             } else {

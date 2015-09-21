@@ -29,7 +29,8 @@
             android:layout_weight="6.8"
             android:gravity="center"
             android:numColumns="2"
-            android:padding="7dp" >
+            android:padding="7dp"
+            android:listSelector="@android:color/transparent">
         </GridView>
         <LinearLayout
             android:layout_width="match_parent"

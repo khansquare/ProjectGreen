@@ -69,7 +69,7 @@
                 android:layout_height="@dimen/density_thirty"
                 android:background="@drawable/circle_gray_filled" />
             <TextView
-                android:text="...Public Holiday"
+                android:text="...Half Day Leave"
                 style="@style/TextViewLargeBlack"
                 android:textColor="#ff505050"
                 android:textStyle="normal"/>
