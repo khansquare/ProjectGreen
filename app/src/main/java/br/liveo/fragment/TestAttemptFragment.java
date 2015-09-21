@@ -3,8 +3,10 @@ package br.liveo.fragment;
 
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.MenuItemCompat;
+import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -29,17 +31,13 @@ public class TestAttemptFragment extends Fragment {
         rootView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
         buttonNext = (FloatingActionButton)rootView.findViewById(R.id.button_next);
         buttonPrevious = (FloatingActionButton)rootView.findViewById(R.id.button_previous);
-        if (TestAttemptPagerFragment.mViewPager.getCurrentItem() == 0) {
-            buttonPrevious.setVisibility(View.INVISIBLE);
-        } else {
-            buttonPrevious.setVisibility(View.VISIBLE);
-        }
+
         buttonNext.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
                 Log.e("NEXT", TestAttemptPagerFragment.mViewPager.getCurrentItem() + "");
-                TestAttemptPagerFragment.mViewPager.setCurrentItem(TestAttemptPagerFragment.mViewPager.getCurrentItem()+1);
+                TestAttemptPagerFragment.mViewPager.setCurrentItem(TestAttemptPagerFragment.mViewPager.getCurrentItem() + 1);
                 TestAttemptPagerFragment.mSlidingTabLayout.getTabAt(TestAttemptPagerFragment.mViewPager.getCurrentItem()+1).select();
             }
         });
@@ -48,13 +46,54 @@ public class TestAttemptFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Log.e("PREVIOUS", TestAttemptPagerFragment.mViewPager.getCurrentItem() + "");
-                buttonPrevious.setVisibility(View.VISIBLE);
                 TestAttemptPagerFragment.mViewPager.setCurrentItem(TestAttemptPagerFragment.mViewPager.getCurrentItem() - 1);
                 TestAttemptPagerFragment.mSlidingTabLayout.getTabAt(TestAttemptPagerFragment.mViewPager.getCurrentItem() - 1).select();
             }
         });
+        TestAttemptPagerFragment.mViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+                if (position == TestAttemptPagerFragment.mViewPager.getCurrentItem()) {
+                    if (position== 0) {
+                        buttonPrevious.setVisibility(View.INVISIBLE);
+                    }
+                    else if (position != 0) {
+                        buttonPrevious.setVisibility(View.VISIBLE);
+                    }
+                }
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
+       /* TestAttemptPagerFragment.mSlidingTabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+             Log.e("onTabSlected Method", "Call");
+               // buttonPrevious.setVisibility(View.VISIBLE);
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+                Log.e("onTabUnselected","Call");
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+                Log.e("onTabReselected","Call");
+            }
+        });*/
         return rootView;
     }
+
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
@@ -69,20 +108,29 @@ public class TestAttemptFragment extends Fragment {
         MenuItem timerItem = menu.findItem(R.id.action_timer);
         timerText  = (TextView) MenuItemCompat.getActionView(timerItem);
         timerText.setPadding(10, 0, 10, 0);
+
         CountDownTimer timer = new CountDownTimer(60000, 1000) {
+            boolean flag = true;
             @Override
             public void onFinish() {
             }
 
             @Override
             public void onTick(long millisecondsLeft) {
-                timerText.setText(String.valueOf((int) Math.round((millisecondsLeft / (double) 1000))));
+                if (flag) {
+                    timerText.setText(String.valueOf(millisecondsLeft));
+                    flag = false;
+                }
+
+                timerText.setText(String.valueOf((int) Math.round((Integer.parseInt(timerText.getText().toString()) / (double) 1000))));
             }
         };
 
         timer.start();
         mSearchCheck = false;
     }
+
+
 }
 
 

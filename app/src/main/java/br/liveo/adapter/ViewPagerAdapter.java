@@ -13,7 +13,6 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
         super(fragmentManager);
         this.mTabs = tabs;
     }
-
     public void setDatasource(List<TabPagerItem> datasource){
         mTabs = datasource;
         notifyDataSetChanged();

@@ -6,13 +6,10 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
-import com.getbase.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -65,25 +62,25 @@ public class TestAttemptPagerFragment extends Fragment {
             tab.setCustomView(convertView);
         }
 
-        mSlidingTabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+        /*mSlidingTabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-                /*convertView = getActivity().getLayoutInflater().inflate(R.layout.layout_bullet, null, false);
-                tab.setCustomView(convertView);*/
+                *//*convertView = getActivity().getLayoutInflater().inflate(R.layout.layout_bullet, null, false);
+                tab.setCustomView(convertView);*//*
             }
 
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
-                /*convertView = getActivity().getLayoutInflater().inflate(R.layout.layout_text, null, false);
-                tab.setCustomView(convertView);*/
+                *//*convertView = getActivity().getLayoutInflater().inflate(R.layout.layout_text, null, false);
+                tab.setCustomView(convertView);*//*
             }
 
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
-                /*v = getActivity().getLayoutInflater().inflate(R.layout.layout_bullet, null, false);
-                tab.setCustomView(v);*/
+                *//*v = getActivity().getLayoutInflater().inflate(R.layout.layout_bullet, null, false);
+                tab.setCustomView(v);*//*
             }
-        });
+        });*/
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             mSlidingTabLayout.setElevation(10);
