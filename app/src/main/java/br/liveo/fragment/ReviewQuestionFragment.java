@@ -10,22 +10,9 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.EditText;
-import android.widget.ListView;
 
-import java.util.ArrayList;
-import java.util.Date;
-
-import br.liveo.activity.MainActivity;
-import br.liveo.adapter.TestListAdapter;
-import br.liveo.model.Test;
 import br.liveo.navigationviewpagerliveo.R;
-
-import static br.liveo.model.TestCategory.ACCESS_KEY;
-import static br.liveo.model.TestCategory.ATTEMPTED;
-import static br.liveo.model.TestCategory.MISSED;
-import static br.liveo.model.TestCategory.UPCOMING;
 
 @SuppressWarnings("deprecation")
 public class ReviewQuestionFragment extends Fragment {
@@ -46,7 +33,7 @@ public class ReviewQuestionFragment extends Fragment {
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(R.menu.menu, menu);
+        inflater.inflate(R.menu.menu_basic, menu);
 
         SearchView searchView = (SearchView) MenuItemCompat.getActionView(menu.findItem(R.id.menu_search));
         searchView.setQueryHint(this.getString(R.string.search));

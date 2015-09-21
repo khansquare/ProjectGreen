@@ -1,7 +1,6 @@
 package br.liveo.fragment;
 
 import android.os.Bundle;
-import android.os.CountDownTimer;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.widget.SearchView;
@@ -13,27 +12,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.EditText;
-import android.widget.TextView;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import br.liveo.activity.MainActivity;
 import br.liveo.navigationviewpagerliveo.R;
-import lecho.lib.hellocharts.gesture.ZoomType;
-import lecho.lib.hellocharts.model.Axis;
-import lecho.lib.hellocharts.model.AxisValue;
-import lecho.lib.hellocharts.model.ColumnChartData;
-import lecho.lib.hellocharts.model.Line;
-import lecho.lib.hellocharts.model.LineChartData;
-import lecho.lib.hellocharts.model.PointValue;
-import lecho.lib.hellocharts.model.Viewport;
-import lecho.lib.hellocharts.util.ChartUtils;
-import lecho.lib.hellocharts.view.ColumnChartView;
-import lecho.lib.hellocharts.view.LineChartView;
 
-import static br.liveo.model.TestCategory.ACCESS_KEY;
-import static br.liveo.model.TestCategory.LIVE;
 /**
  * Author       :   Mohsin Khan
  * Designation  :   Android Developer
@@ -64,7 +45,7 @@ public class MessageFragment extends Fragment {
 	@Override
 	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
 		super.onCreateOptionsMenu(menu, inflater);		
-		inflater.inflate(R.menu.menu, menu);
+		inflater.inflate(R.menu.menu_basic, menu);
 
         SearchView searchView = (SearchView) MenuItemCompat.getActionView(menu.findItem(R.id.menu_search));
         searchView.setQueryHint(this.getString(R.string.search));

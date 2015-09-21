@@ -24,7 +24,9 @@ import br.liveo.navigationviewpagerliveo.R;
 
 public class ReviewCategoryPagerFragment extends Fragment {
     private ArrayList<Bullet> bullets;
-	private List<TabPagerItem> mTabs = new ArrayList<>();
+    public static ViewPager mViewPager;
+    public static TabLayout mSlidingTabLayout;
+    private List<TabPagerItem> mTabs = new ArrayList<>();
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,47 +54,63 @@ public class ReviewCategoryPagerFragment extends Fragment {
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
-        ViewPager mViewPager = (ViewPager) view.findViewById(R.id.viewPager);
+        mViewPager = (ViewPager) view.findViewById(R.id.viewPager);
         mViewPager.setOffscreenPageLimit(mTabs.size());
         mViewPager.setAdapter(new ViewPagerAdapter(getChildFragmentManager(), mTabs));
 
-        TabLayout mSlidingTabLayout = (TabLayout) view.findViewById(R.id.tabLayout);
+        mSlidingTabLayout = (TabLayout) view.findViewById(R.id.tabLayout);
         mSlidingTabLayout.setBackgroundColor(Color.parseColor("#EEEEEE"));
+        mSlidingTabLayout.setSelectedTabIndicatorColor(Color.parseColor("#EEEEEE"));
         mSlidingTabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
         mSlidingTabLayout.setupWithViewPager(mViewPager);
-        mSlidingTabLayout.getTabAt(getArguments().getInt("POSITION")).select();
-        mSlidingTabLayout.setTop(20);
         mSlidingTabLayout.setSoundEffectsEnabled(true);
 
+        mSlidingTabLayout.getTabAt(getArguments().getInt("POSITION")).select();
         for (int i = 0; i < mSlidingTabLayout.getTabCount(); i++) {
             TabLayout.Tab tab = mSlidingTabLayout.getTabAt(i);
             View convertView = getActivity().getLayoutInflater().inflate(R.layout.layout_text, null, false);
             ((TextView) convertView.findViewById(R.id.txtQuestionNumber)).setText(bullets.get(i).getText());
             tab.setCustomView(convertView);
+            if (i == getArguments().getInt("POSITION")) {
+                select((TextView) convertView.findViewById(R.id.txtQuestionNumber));
+            }
         }
 
-        mSlidingTabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+        mViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
-            public void onTabSelected(TabLayout.Tab tab) {
-                /*convertView = getActivity().getLayoutInflater().inflate(R.layout.layout_bullet, null, false);
-                tab.setCustomView(convertView);*/
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
             }
 
             @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-                /*convertView = getActivity().getLayoutInflater().inflate(R.layout.layout_text, null, false);
-                tab.setCustomView(convertView);*/
+            public void onPageSelected(int position) {
+                select((TextView) mSlidingTabLayout.getTabAt(position).getCustomView().findViewById(R.id.txtQuestionNumber));
+                if (position > 0) {
+                    deselect((TextView) mSlidingTabLayout.getTabAt(position - 1).getCustomView().findViewById(R.id.txtQuestionNumber));
+                }
+                if (position < mSlidingTabLayout.getTabCount() - 1 ) {
+                    deselect((TextView) mSlidingTabLayout.getTabAt(position + 1).getCustomView().findViewById(R.id.txtQuestionNumber));
+                }
             }
 
             @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-                /*v = getActivity().getLayoutInflater().inflate(R.layout.layout_bullet, null, false);
-                tab.setCustomView(v);*/
+            public void onPageScrollStateChanged(int state) {
+
             }
         });
 
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             mSlidingTabLayout.setElevation(10);
         }
+    }
+
+    private void select(TextView textView) {
+        textView.setBackgroundResource(R.drawable.circle_green_filled_smaller);
+        textView.setTextColor(Color.parseColor("#FFFFFF"));
+    }
+
+    private void deselect(TextView textView) {
+        textView.setBackgroundColor(Color.parseColor("#00000000"));
+        textView.setTextColor(Color.parseColor("#4CAF50"));
     }
 }

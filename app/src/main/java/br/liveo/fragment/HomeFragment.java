@@ -16,7 +16,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 
 import br.liveo.activity.MainActivity;
@@ -35,7 +34,6 @@ import lecho.lib.hellocharts.view.LineChartView;
 
 import static br.liveo.model.TestCategory.ACCESS_KEY;
 import static br.liveo.model.TestCategory.LIVE;
-import static br.liveo.model.TestCategory.MISSED;
 
 public class HomeFragment extends Fragment {
 
@@ -49,12 +47,11 @@ public class HomeFragment extends Fragment {
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		View rootView = inflater.inflate(R.layout.fragment_home, container, false);
+		final View rootView = inflater.inflate(R.layout.fragment_home, container, false);
 		rootView.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT ));
 		chartTop = (LineChartView) rootView.findViewById(R.id.chart_top);
 		txtTimer = (TextView) rootView.findViewById(R.id.txtTimer);
-		/*Calendar calendar = Calendar.getInstance();
-		txtTimer.setText(String.valueOf(calendar.getTime().getTime()));*/
+
 		new CountDownTimer(60000,1000) {
 
 			@Override
@@ -70,12 +67,14 @@ public class HomeFragment extends Fragment {
 
 			}
 		}.start();
+
 		generateInitialLineData();
         rootView.findViewById(R.id.btnLiveAtHome).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Bundle bundle = new Bundle();
                 bundle.putInt(ACCESS_KEY, LIVE);
+				bundle.putString("TITLE", ((TextView) rootView.findViewById(R.id.txtTestNameAtHome)).getText().toString());
                 Fragment fragment = new TestDetailPagerFragment();
                 fragment.setArguments(bundle);
                 getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment)
@@ -137,7 +136,7 @@ public class HomeFragment extends Fragment {
 	@Override
 	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
 		super.onCreateOptionsMenu(menu, inflater);		
-		inflater.inflate(R.menu.menu, menu);
+		inflater.inflate(R.menu.menu_basic, menu);
 
         SearchView searchView = (SearchView) MenuItemCompat.getActionView(menu.findItem(R.id.menu_search));
         searchView.setQueryHint(this.getString(R.string.search));

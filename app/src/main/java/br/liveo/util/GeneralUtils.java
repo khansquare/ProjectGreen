@@ -11,6 +11,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Build;
+import android.support.v7.app.ActionBar;
 import android.util.Log;
 import android.view.Display;
 import android.view.Gravity;
@@ -145,5 +146,17 @@ public class GeneralUtils {
                     imageView.setImageBitmap(bitmap);
             }
         }.execute();
+    }
+
+    public void resetActionBarTitle(ActionBar actionBar) {
+        if (actionBar != null) {
+            actionBar.setTitle(context.getResources().getString(R.string.app_name));
+        }
+    }
+
+    public void setActionBarTitle(ActionBar actionBar, String title) {
+        if (actionBar != null) {
+            actionBar.setTitle(title);
+        }
     }
 }

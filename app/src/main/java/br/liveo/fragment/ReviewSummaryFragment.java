@@ -11,17 +11,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
-import android.widget.TextView;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import br.liveo.activity.MainActivity;
 import br.liveo.navigationviewpagerliveo.R;
-import lecho.lib.hellocharts.model.PieChartData;
-import lecho.lib.hellocharts.model.SliceValue;
-import lecho.lib.hellocharts.util.ChartUtils;
-import lecho.lib.hellocharts.view.PieChartView;
 
 /**
  * Author       :   Mohsin Khan
@@ -51,7 +42,7 @@ public class ReviewSummaryFragment extends Fragment {
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(R.menu.menu, menu);
+        inflater.inflate(R.menu.menu_basic, menu);
 
         SearchView searchView = (SearchView) MenuItemCompat.getActionView(menu.findItem(R.id.menu_search));
         searchView.setQueryHint(this.getString(R.string.search));

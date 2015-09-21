@@ -73,23 +73,17 @@
                         android:textColor="#fff"/>
                 </LinearLayout>
             </LinearLayout>
-            <FrameLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-                <android.support.v7.widget.CardView
-                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                    android:id="@+id/card_view_inner"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    card_view:elevation="@dimen/density_five"
-                    card_view:contentPadding="@dimen/density_ten"
-                    card_view:cardBackgroundColor="#fff"
-                    android:layout_marginTop="@dimen/density_fifteen">
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:id="@+id/btnLiveAtHome"
                         android:orientation="horizontal"
+                        android:background="@drawable/shape_rounded_corners"
+                        android:padding="@dimen/density_ten"
+                        android:layout_marginTop="@dimen/density_fifteen"
                         android:weightSum="1">
                         <LinearLayout
                             android:layout_width="0dp"
@@ -124,6 +118,7 @@
                             android:padding="5dp"
                             android:weightSum="1">
                             <TextView
+                                android:id="@+id/txtTestNameAtHome"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_weight="0.5"
@@ -159,7 +154,7 @@
                             </LinearLayout>
                         </LinearLayout>
                     </LinearLayout>
-                </android.support.v7.widget.CardView>
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -171,10 +166,10 @@
                     android:paddingLeft="@dimen/density_ten"
                     android:paddingRight="@dimen/density_ten"
                     android:layout_gravity="center_horizontal"
-                    android:layout_above="@+id/card_view_inner"
                     android:layout_centerHorizontal="true"
-                    android:id="@+id/textView" />
-            </FrameLayout>
+                    android:elevation="1dp"
+                    android:id="@+id/textViewLiveNow" />
+            </RelativeLayout>
 
 
 

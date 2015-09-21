@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/app_background"
     android:paddingTop="@dimen/density_seventy"
     android:paddingBottom="@dimen/density_seventy"
     android:paddingLeft="@dimen/density_twenty_five"
@@ -61,25 +62,19 @@
                 android:layout_height="0dp"
                 android:orientation="horizontal"
                 android:gravity="center"
-                android:layout_weight="3.5"
-                android:paddingLeft="50dp"
-                android:paddingRight="50dp"
-                android:paddingTop="@dimen/density_fourty"
-                android:paddingBottom="@dimen/density_fourty">
+                android:layout_weight="3.5">
                 <ImageButton
                     android:id="@+id/btnGoogle"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
                     android:background="@drawable/btn_google"/>
                 <com.facebook.login.widget.LoginButton
                     xmlns:fb="http://schemas.android.com/apk/res-auto"
                     android:id="@+id/btnFacebook"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
                     fb:login_text=""
                     fb:logout_text=""
                     fb:paddingEnd="0dp"
@@ -90,9 +85,8 @@
                     android:background="@drawable/btn_facebook"/>
                 <ImageButton
                     android:id="@+id/btnTwitter"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
                     android:background="@drawable/btn_twitter"/>
             </LinearLayout>
         </LinearLayout>

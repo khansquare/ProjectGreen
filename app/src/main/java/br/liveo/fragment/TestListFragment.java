@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.widget.SearchView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -36,7 +35,7 @@ public class TestListFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_test_list, container, false);
         rootView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT ));
-        ArrayList<Test> tests = new ArrayList<>();
+        final ArrayList<Test> tests = new ArrayList<>();
         listViewTests = (ListView) rootView.findViewById(R.id.listViewTests);
         listViewTests.setEmptyView(rootView.findViewById(R.id.txtEmptyListLabel));
         if(getArguments().getInt(ACCESS_KEY) == MISSED) {
@@ -63,6 +62,7 @@ public class TestListFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Bundle bundle = new Bundle();
                 bundle.putInt(ACCESS_KEY, getArguments().getInt(ACCESS_KEY));
+                bundle.putString("TITLE", tests.get(position).getTitle());
                 Fragment fragment = new TestDetailPagerFragment();
                 fragment.setArguments(bundle);
                 getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment)
@@ -82,7 +82,7 @@ public class TestListFragment extends Fragment {
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(R.menu.menu, menu);
+        inflater.inflate(R.menu.menu_basic, menu);
 
         SearchView searchView = (SearchView) MenuItemCompat.getActionView(menu.findItem(R.id.menu_search));
         searchView.setQueryHint(this.getString(R.string.search));

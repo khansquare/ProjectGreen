@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,17 +17,21 @@ import java.util.List;
 import br.liveo.adapter.TabPagerItem;
 import br.liveo.adapter.ViewPagerAdapter;
 import br.liveo.navigationviewpagerliveo.R;
+import br.liveo.util.GeneralUtils;
 
 import static br.liveo.model.TestCategory.*;
 
 public class TestDetailPagerFragment extends Fragment {
     private final int TOTAL_ITEMS = 3;
+    private GeneralUtils generalUtils;
 	private List<TabPagerItem> mTabs = new ArrayList<>();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        generalUtils = new GeneralUtils(getActivity());
         createTabPagerItem();
+        generalUtils.setActionBarTitle(((AppCompatActivity) getActivity()).getSupportActionBar(), getArguments().getString("TITLE"));
     }
 
     private void createTabPagerItem(){
@@ -75,5 +81,11 @@ public class TestDetailPagerFragment extends Fragment {
             mSlidingTabLayout.setElevation(10);
         }
         mSlidingTabLayout.setupWithViewPager(mViewPager);
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        generalUtils.resetActionBarTitle(((AppCompatActivity) getActivity()).getSupportActionBar());
     }
 }
