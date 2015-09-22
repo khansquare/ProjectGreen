@@ -1,9 +1,12 @@
 package br.liveo.fragment;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.widget.SearchView;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -11,7 +14,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.PopupWindow;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -28,12 +36,21 @@ import static br.liveo.model.TestCategory.UPCOMING;
 
 @SuppressWarnings("deprecation")
 public class TestListFragment extends Fragment {
+    private View rootView;
     private ListView listViewTests;
+    private ArrayList<Test> tests;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_test_list, container, false);
-        rootView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT ));
-        final ArrayList<Test> tests = new ArrayList<>();
+        rootView = inflater.inflate(R.layout.fragment_test_list, container, false);
+        rootView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+        initializeAllElements();
+        setListViewOnItemLongClickListener();
+        setListViewOnItemClickListener();
+        return rootView;
+    }
+
+    private void initializeAllElements() {
+        tests = new ArrayList<>();
         listViewTests = (ListView) rootView.findViewById(R.id.listViewTests);
         listViewTests.setEmptyView(rootView.findViewById(R.id.txtEmptyListLabel));
         if(getArguments().getInt(ACCESS_KEY) == MISSED) {
@@ -54,8 +71,10 @@ public class TestListFragment extends Fragment {
         } else if(getArguments().getInt(ACCESS_KEY) == UPCOMING) {
             tests.add(new Test(new Date(2015,9,12), "Part Test - 48", "2 Hours", ATTEMPTED));
         }
-
         listViewTests.setAdapter(new TestListAdapter(getActivity(), R.layout.layout_test, tests));
+    }
+
+    private void setListViewOnItemClickListener() {
         listViewTests.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Bundle bundle = new Bundle();
@@ -67,8 +86,30 @@ public class TestListFragment extends Fragment {
                         .addToBackStack(MainActivity.MAIN_FRAGMENT_STACK).commit();
             }
         });
+    }
 
-        return rootView;
+    private void setListViewOnItemLongClickListener() {
+        listViewTests.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+                if(getArguments().getInt(ACCESS_KEY) == MISSED) {
+                    ((Vibrator) getActivity().getSystemService(Context.VIBRATOR_SERVICE)).vibrate(50);
+                    View dialogLayout = ((LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.layout_options, null);
+                    final PopupWindow popupWindow = new PopupWindow(dialogLayout, LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT, true);
+
+                    Button btnDialogClose = (Button) dialogLayout.findViewById(R.id.btnClose);
+                    btnDialogClose.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            popupWindow.dismiss();
+                        }
+                    });
+
+                    popupWindow.showAtLocation(dialogLayout, Gravity.CENTER, 0, 0);
+                }
+                return true;
+            }
+        });
     }
 
     @Override
@@ -81,10 +122,6 @@ public class TestListFragment extends Fragment {
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
         inflater.inflate(R.menu.menu_basic, menu);
-
-        SearchView searchView = (SearchView) MenuItemCompat.getActionView(menu.findItem(R.id.menu_sync));
-
-
         menu.findItem(R.id.menu_notify).setVisible(true);
         menu.findItem(R.id.menu_sync).setVisible(true);
     }
