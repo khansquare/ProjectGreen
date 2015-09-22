@@ -1,23 +1,15 @@
 package br.liveo.fragment;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
 import android.os.Bundle;
-import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.ExpandableListView;
-import android.widget.ExpandableListView.OnGroupClickListener;
-import android.widget.TextView;
+import android.widget.ListView;
 
-import br.liveo.custom.AnimatedExpandableListView;
+import java.util.ArrayList;
+
+import br.liveo.adapter.MessageListAdapter;
 import br.liveo.model.Message;
 import br.liveo.navigationviewpagerliveo.R;
 
@@ -29,209 +21,21 @@ import br.liveo.navigationviewpagerliveo.R;
  * child, the second will have two children and so on...).
  */
 public class MessageFragment extends Fragment {
-	private AnimatedExpandableListView listViewForMessage;
-	private ExampleAdapter adapter;
 
+    private ListView listViewMessage;
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View rootView = inflater.inflate(R.layout.fragment_message, container, false);
+	    listViewMessage = (ListView)rootView.findViewById(R.id.listViewMessage);
 		ArrayList<Message> messages = new ArrayList<>();
-		messages.add(new Message(1,"1 Jan 2015", "Exam Scedule","Your upcoming exam dates and time table has been released."));
-		messages.add(new Message(2,"1 Jan 2015", "Result","Your anual Function held on."));
-		messages.add(new Message(3,"8 Mar 2015", "Upcoming Event","Semester exam held on"));
-		messages.add(new Message(4,"12 Dec 2015", "Mid-Term Exam","Your upcoming exam dates and time table has been released."));
-		messages.add(new Message(5,"12 Dec 2015", "Syllabus","Your upcoming exam dates and time table has been released."));
-		messages.add(new Message(6,"12 Dec 2015", "Class Test","Your upcoming exam dates and time table has been released."));
-		messages.add(new Message(3,"8 Mar 2015", "Upcoming Event","Your upcoming exam dates and time table has been released."));
-		messages.add(new Message(4,"10 Dec 2015", "Mid-Term Exam","Your upcoming exam dates and time table has been released."));
-		messages.add(new Message(5,"11 Dec 2015", "Syllabus","Your upcoming exam dates and time table has been released."));
-		messages.add(new Message(6,"12 Dec 2015", "Class Test","Your upcoming exam dates and time table has been released."));
-		messages.add(new Message(2,"1 Jan 2015", "Result","Your upcoming exam dates and time table has been released."));
-		messages.add(new Message(3,"9 Mar 2015", "Upcoming Event","Your upcoming exam dates and time table has been released."));
-		messages.add(new Message(4,"12 Dec 2015", "Mid-Term Exam","Your upcoming exam dates and time table has been released."));
-		messages.add(new Message(5,"11 Feb 2015", "Syllabus","Your upcoming exam dates and time table has been released."));
-		messages.add(new Message(6,"12 Dec 2015", "Class Test","Your upcoming exam dates and time table has been released."));
-
-
-		ArrayList<String> parents = getParentTitles(messages);
-
-		List<GroupItem> items = new ArrayList<GroupItem>();
-
-		// Populate our list with groups and it's children
-		for(int i = 0; i < parents.size(); i++) {
-			GroupItem item = new GroupItem();
-			item.title = parents.get(i);
-			ArrayList<Message> children = getChildren(messages, parents.get(i));
-			for(int j = 0; j < children.size(); j++) {
-
-				ChildItem child = new ChildItem();
-				child.title = children.get(j).getTitle();
-				child.message= children.get(j).getMessage();
-				item.items.add(child);
-			}
-			items.add(item);
-		}
-
-		adapter = new ExampleAdapter(getActivity());
-		adapter.setData(items);
-
-		listViewForMessage = (AnimatedExpandableListView) rootView.findViewById(R.id.listViewForMessage);
-		listViewForMessage.setAdapter(adapter);
-		listViewForMessage.expandGroup(0);
-		listViewForMessage.setOnGroupClickListener(new OnGroupClickListener() {
-			@Override
-			public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
-				if (listViewForMessage.isGroupExpanded(groupPosition)) {
-					listViewForMessage.collapseGroupWithAnimation(groupPosition);
-				} else {
-					listViewForMessage.expandGroupWithAnimation(groupPosition);
-				}
-				return true;
-			}
-		});
-		listViewForMessage.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
-			int previousItem = -1;
-			@Override
-			public void onGroupExpand(int groupPosition) {
-				if (groupPosition != previousItem)
-					listViewForMessage.collapseGroup(previousItem);
-				previousItem = groupPosition;
-			}
-		});
-		return  rootView;
-	}
-
-	private ArrayList<String> getParentTitles(ArrayList<Message> messages) {
-		Set<String> uniqueSet = new HashSet<>();
-		for (int i = 0; i < messages.size(); i++) {
-			uniqueSet.add(messages.get(i).getDate());
-		}
-		return new ArrayList<>(uniqueSet);
-	}
-
-	private ArrayList<Message> getChildren(ArrayList<Message> messages, String parent) {
-		ArrayList<Message> children = new ArrayList<>();
-		for (int i = 0; i < messages.size(); i++) {
-			if (messages.get(i).getDate().equals(parent))
-			children.add(messages.get(i));
-		}
-		return children;
-	}
-
-	private static class GroupItem {
-		String title;
-		List<ChildItem> items = new ArrayList<ChildItem>();
-
-
-	}
-
-	private static class ChildItem {
-		String title;
-		String message;
-	}
-
-	private static class ChildHolder {
-		TextView title;
-		TextView message;
-	}
-
-	private static class GroupHolder {
-		TextView title;
-		TextView message;
-	}
-
-	/**
-	 * Adapter for our list of {@link GroupItem}s.
-	 */
-	private class ExampleAdapter extends AnimatedExpandableListView.AnimatedExpandableListAdapter {
-		private LayoutInflater inflater;
-
-		private List<GroupItem> items;
-
-		public ExampleAdapter(Context context) {
-			inflater = LayoutInflater.from(context);
-		}
-
-		public void setData(List<GroupItem> items) {
-			this.items = items;
-
-		}
-
-		@Override
-		public ChildItem getChild(int groupPosition, int childPosition) {
-			return items.get(groupPosition).items.get(childPosition);
-		}
-
-		@Override
-		public long getChildId(int groupPosition, int childPosition) {
-			return childPosition;
-		}
-
-		@Override
-		public View getRealChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
-			ChildHolder holder;
-			ChildItem item = getChild(groupPosition, childPosition);
-			if (convertView == null) {
-				holder = new ChildHolder();
-				convertView = inflater.inflate(R.layout.layout_message_exp_child, parent, false);
-				holder.title = (TextView) convertView.findViewById(R.id.txtTitle);
-				holder.message = (TextView) convertView.findViewById(R.id.txtMessage);
-				convertView.setTag(holder);
-			} else {
-				holder = (ChildHolder) convertView.getTag();
-			}
-
-			holder.title.setText(item.title);
-			holder.message.setText(item.message);
-			return convertView;
-		}
-
-		@Override
-		public int getRealChildrenCount(int groupPosition) {
-			return items.get(groupPosition).items.size();
-		}
-
-		@Override
-		public GroupItem getGroup(int groupPosition) {
-			return items.get(groupPosition);
-		}
-
-		@Override
-		public int getGroupCount() {
-			return items.size();
-		}
-
-		@Override
-		public long getGroupId(int groupPosition) {
-			return groupPosition;
-		}
-
-		@Override
-		public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
-			GroupHolder holder;
-			GroupItem item = getGroup(groupPosition);
-			if (convertView == null) {
-				holder = new GroupHolder();
-				convertView = inflater.inflate(R.layout.layout_message_exp_parent, parent, false);
-				holder.title = (TextView) convertView.findViewById(R.id.textTitleforMessage);
-				convertView.setTag(holder);
-			} else {
-				holder = (GroupHolder) convertView.getTag();
-			}
-
-			holder.title.setText(item.title);
-			return convertView;
-		}
-
-		@Override
-		public boolean hasStableIds() {
-			return true;
-		}
-
-		@Override
-		public boolean isChildSelectable(int arg0, int arg1) {
-			return true;
-		}
-
+		messages.add(new Message(0,"20:01:2015","Michael Clark", "Want to know result declaration date."));
+		messages.add(new Message(1,"20:01:2015","Adam Smith", "Attenddence report."));
+		messages.add(new Message(2,"21:02:2015","Lisa Hyden ", "Exam Fees for next semester."));
+		messages.add(new Message(3,"22:02:2015","Amelia Silverstone", "Last date of fee submission."));
+		messages.add(new Message(4,"23:05:2015","Chris Walkner", "Want to know result declaration date."));
+		messages.add(new Message(5,"24:05:2015","David Guetta", "Want to know result declaration date."));
+		messages.add(new Message(6,"24:05:2015","Harshel Gibs", "Want to know result declaration date."));
+		listViewMessage.setAdapter(new MessageListAdapter(getActivity(),R.layout.layout_message, messages));
+		return rootView;
 	}
 }

@@ -1,59 +1,80 @@
 package br.liveo.model;
 
-import java.util.Date;
-
 /**
  * Author       :   Rakesh Kumawat
  * Designation  :   Android Developer
  * E-mail       :   er.r.kumawat@gmail.com
  * Company      :   Parasme Softwares & Technology
  * Date         :   September 21 , 2015
- * Purpose      :   Home screen of the application
+ * Purpose      :   Message Model
  * Description  :   Detailed Description...
  */
 public class Message {
     private int id;
     private String date;
-    private String title;
+    private String sender;
     private String message;
+    private byte[] picture;
 
-    public Message(int id, String date, String title, String message) {
+    public Message() {
+        this.id = 0;
+        this.date = "";
+        this.sender = "";
+        this.message = "";
+    }
+
+    public Message(int id, String date, String sender, String message) {
         this.id = id;
         this.date = date;
-        this.title = title;
+        this.sender = sender;
         this.message = message;
+    }
+
+    public Message(int id, String date, String sender, String message, byte[] picture) {
+        this.id = id;
+        this.date = date;
+        this.sender = sender;
+        this.message = message;
+        this.picture = picture;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public void setId(int id) {
         this.id = id;
     }
 
+    public String getDate() {
+        return date;
+    }
+
     public void setDate(String date) {
         this.date = date;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public String getSender() {
+        return sender;
+    }
+
+    public void setSender(String sender) {
+        this.sender = sender;
+    }
+
+    public String getMessage() {
+        return message;
     }
 
     public void setMessage(String message) {
         this.message = message;
     }
 
-    public int getId() {
-
-        return id;
+    public byte[] getPicture() {
+        return picture;
     }
 
-    public String getDate() {
-        return date;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public String getMessage() {
-        return message;
+    public void setPicture(byte[] picture) {
+        this.picture = picture;
     }
 }

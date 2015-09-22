@@ -147,7 +147,8 @@ public class HomeFragment extends Fragment {
 		switch (item.getItemId()) {
 
 		case R.id.menu_notify:
-
+			getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container, new NotificationFragment())
+					.addToBackStack(MainActivity.MAIN_FRAGMENT_STACK).commit();
 			break;				
 		
 		case R.id.menu_sync:
