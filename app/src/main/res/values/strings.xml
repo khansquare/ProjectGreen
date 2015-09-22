@@ -8,6 +8,7 @@
     <string name="dummy_message">Please connect to the internet. then give it another shot.</string>
     <string name="dummy_title">Alert Title</string>
     <string name="ok">OK</string>
+    <string name="close">CLOSE</string>
 
     <!--Drawer Menus-->
     <string name="home">Home</string>

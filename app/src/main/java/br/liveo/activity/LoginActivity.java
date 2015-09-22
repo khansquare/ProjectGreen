@@ -169,8 +169,7 @@ public class LoginActivity extends ActionBarActivity implements GoogleApiClient.
             @Override
             public void onClick(View v) {
                 if (!(editPassword.getText().toString().trim().equals(""))) {
-                    startActivity(new Intent(LoginActivity.this, MainActivity.class).putExtra("user", new User()));
-                    LoginActivity.this.finish();
+                    startMainActivity(new User("Charles Gibson", "gibson_charles@yahoo.com", "gibson_charles@yahoo.com", STUDENT));
                 } else {
                     editPassword.setError("Please enter password");
                 }
@@ -198,6 +197,7 @@ public class LoginActivity extends ActionBarActivity implements GoogleApiClient.
         findViewById(R.id.txtForgetPassword).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                viewFlipper.showNext();
                 viewFlipper.showNext();
             }
         });

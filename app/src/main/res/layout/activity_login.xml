@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/app_background"
+    android:background="@color/nliveo_green_colorPrimary"
     android:paddingTop="@dimen/density_seventy"
     android:paddingBottom="@dimen/density_seventy"
     android:paddingLeft="@dimen/density_twenty_five"
@@ -44,19 +44,32 @@
                 android:layout_marginBottom="@dimen/density_ten"
                 android:layout_marginLeft="@dimen/density_fifteen"
                 android:layout_marginRight="@dimen/density_fifteen"/>
-            <Button
-                android:id="@+id/btnNext"
-                android:layout_width="wrap_content"
-                android:layout_weight="1"
+            <RelativeLayout
+                android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_gravity="end"
-                android:text="Next"
-                android:textColor="#fff"
-                android:textStyle="bold"
+                android:layout_weight="1"
                 android:layout_marginLeft="@dimen/density_fifteen"
-                android:layout_marginRight="@dimen/density_fifteen"
-                android:background="@color/nliveo_green_colorPrimaryDark"/>
-
+                android:layout_marginRight="@dimen/density_fifteen">
+                <TextView
+                    android:id="@+id/txtForgetPassword"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/density_five"
+                    android:text="Forget Password"
+                    android:layout_gravity="start"/>
+                <Button
+                    android:id="@+id/btnNext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:text="NEXT"
+                    android:textColor="#fff"
+                    android:textStyle="bold"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:background="@color/nliveo_green_colorPrimaryDark"/>
+            </RelativeLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
@@ -130,30 +143,18 @@
                 android:layout_marginBottom="@dimen/density_ten"
                 android:layout_marginLeft="@dimen/density_fifteen"
                 android:layout_marginRight="@dimen/density_fifteen"/>
-            <RelativeLayout
-                android:layout_width="match_parent"
+            <Button
+                android:id="@+id/btnLogin"
+                android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_weight="1"
+                android:layout_gravity="end"
+                android:text="LOGIN"
+                android:textColor="#fff"
+                android:textStyle="bold"
+                android:background="@color/nliveo_green_colorPrimaryDark"
                 android:layout_marginLeft="@dimen/density_fifteen"
-                android:layout_marginRight="@dimen/density_fifteen">
-                <TextView
-                    android:id="@+id/txtForgetPassword"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Forget Password"
-                    android:layout_gravity="start"/>
-                <Button
-                    android:id="@+id/btnLogin"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="LOGIN"
-                    android:textColor="#fff"
-                    android:textStyle="bold"
-                    android:background="@color/nliveo_green_colorPrimaryDark"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentEnd="true" />
-            </RelativeLayout>
+                android:layout_marginRight="@dimen/density_fifteen" />
             <View
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
