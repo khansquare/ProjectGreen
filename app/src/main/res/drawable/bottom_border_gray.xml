@@ -10,10 +10,10 @@
                 android:width="1px"
                 android:color="@color/nliveo_blue_gray_alpha_colorPrimaryDark" />
             <solid android:color="#00FFFFFF" />
-            <padding android:left="10dp"
-                android:right="10dp"
-                android:top="0dp"
-                android:bottom="10dp" />
+            <padding android:left="0dp"
+                android:right="0dp"
+                android:top="5dp"
+                android:bottom="5dp" />
         </shape>
     </item>
 </layer-list>

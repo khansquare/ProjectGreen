@@ -4,8 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="@dimen/density_fifteen"
-    android:padding="@dimen/density_ten"
-    android:background="@color/app_background"
+    android:padding="@dimen/density_fifteen"
+    android:background="@color/nliveo_white"
     android:orientation="vertical">
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,33 +15,66 @@
         <TextView
             android:text="PERSONALIZATION"
             style="@style/TextViewSmallGreen"
-            android:layout_marginTop="@dimen/density_ten"
-            android:layout_marginBottom="@dimen/density_fifteen"/>
+
+            android:layout_marginBottom="@dimen/density_thirty"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center_vertical"
-            android:layout_marginBottom="@dimen/density_fifteen"
+            android:layout_marginBottom="@dimen/density_twenty"
             android:weightSum="10">
+            <ImageView
+                android:id="@+id/imgNotification"
+                android:src="@mipmap/ic_notifications_black_24dp"
+                android:scaleType="fitCenter"
+                android:contentDescription="@string/app_name"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content" />
             <TextView
                 android:layout_width="0dp"
-                android:layout_weight="8"
+                android:layout_weight="7"
                 android:layout_height="wrap_content"
                 android:text="Notifications"
+                android:paddingLeft="@dimen/density_ten"
+                android:paddingRight="@dimen/density_ten"
                 android:textSize="20sp"/>
             <android.support.v7.widget.SwitchCompat
                 android:layout_height="wrap_content"
                 android:layout_width="0dp"
                 android:layout_weight="2"
+                android:checked="true"
+                android:focusable="false"
+
+                android:foreground="@android:color/transparent"
                 android:theme="@style/SwitchTheme"/>
         </LinearLayout>
-        <TextView
+        <LinearLayout
+            android:id="@+id/layoutChangePassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/density_fifteen"
-            android:text="Change Password"
-            android:textSize="20sp"/>
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="@dimen/density_twenty"
+            android:weightSum="10">
+            <ImageView
+                android:id="@+id/imgPassword"
+                android:src="@mipmap/ic_vpn_key_black_24dp"
+                android:scaleType="fitCenter"
+                android:contentDescription="@string/app_name"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="9"
+                android:layout_height="wrap_content"
+                android:text="Change Password"
+                android:paddingLeft="@dimen/density_ten"
+                android:paddingRight="@dimen/density_ten"
+                android:textSize="20sp"/>
+        </LinearLayout>
 
     </LinearLayout>
     <LinearLayout
@@ -52,27 +85,63 @@
         <TextView
             android:text="ABOUT"
             style="@style/TextViewSmallGreen"
-            android:layout_marginTop="@dimen/density_ten"
-            android:layout_marginBottom="@dimen/density_fifteen"/>
-        <TextView
-            android:layout_width="wrap_content"
+            android:layout_marginTop="@dimen/density_fifteen"
+            android:layout_marginBottom="@dimen/density_thirty"/>
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Organization"
-            android:layout_marginBottom="@dimen/density_fifteen"
-            android:textSize="20sp"/>
-        <TextView
-            android:layout_width="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="@dimen/density_twenty"
+            android:weightSum="10">
+            <ImageView
+                android:id="@+id/imgOrganization"
+                android:src="@mipmap/ic_subject_black_24dp"
+                android:scaleType="fitCenter"
+                android:contentDescription="@string/app_name"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="9"
+                android:layout_height="wrap_content"
+                android:text="Organization"
+                android:paddingLeft="@dimen/density_ten"
+                android:paddingRight="@dimen/density_ten"
+                android:textSize="20sp"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Terms of Services"
-            android:layout_marginBottom="@dimen/density_fifteen"
-            android:textSize="20sp"/>
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="@dimen/density_twenty"
+            android:weightSum="10">
+            <ImageView
+                android:id="@+id/imgTerms"
+                android:src="@mipmap/ic_privacy_black_24dp"
+                android:scaleType="fitCenter"
+                android:contentDescription="@string/app_name"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="9"
+                android:layout_height="wrap_content"
+                android:text="Terms of Services"
+                android:paddingLeft="@dimen/density_ten"
+                android:paddingRight="@dimen/density_ten"
+                android:textSize="20sp"/>
+        </LinearLayout>
     </LinearLayout>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Logout"
         android:paddingLeft="@dimen/density_ten"
-        android:layout_marginTop="@dimen/density_ten"
-        android:layout_marginBottom="@dimen/density_fifteen"
+        android:layout_marginTop="@dimen/density_fifteen"
+        android:layout_marginBottom="@dimen/density_twenty"
         android:textSize="20sp"/>
 </LinearLayout>
