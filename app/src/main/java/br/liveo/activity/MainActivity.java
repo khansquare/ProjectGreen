@@ -13,6 +13,7 @@ import br.liveo.fragment.HomeFragment;
 
 import br.liveo.fragment.MessageFragment;
 import br.liveo.fragment.ReportsFragment;
+import br.liveo.fragment.SettingsFragment;
 import br.liveo.fragment.TestListPagerFragment;
 import br.liveo.interfaces.OnItemClickListener;
 import br.liveo.interfaces.OnPrepareOptionsMenuLiveo;
@@ -120,7 +121,7 @@ public class MainActivity extends NavigationLiveo implements OnItemClickListener
     private View.OnClickListener onClickFooter = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.container, new ReportsFragment())
+            getSupportFragmentManager().beginTransaction().replace(R.id.container, new SettingsFragment())
                     .addToBackStack(MainActivity.MAIN_FRAGMENT_STACK).commit();
             footerBackground(R.color.nliveo_gray);
             closeDrawer();
