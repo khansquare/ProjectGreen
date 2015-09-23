@@ -12,6 +12,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RadioButton;
 import android.widget.TextView;
 
 import com.getbase.floatingactionbutton.FloatingActionButton;
@@ -30,6 +31,19 @@ public class RunningTestQuestionFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_running_test_question, container, false);
         // rootView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+        TextView txtQuestion = (TextView)rootView.findViewById(R.id.txtQuestion);
+        RadioButton txtAnswerA =  (RadioButton)rootView.findViewById(R.id.txtAnswerA);
+        RadioButton txtAnswerB =  (RadioButton)rootView.findViewById(R.id.txtAnswerB);
+        RadioButton txtAnswerC =  (RadioButton)rootView.findViewById(R.id.txtAnswerC);
+        RadioButton txtAnswerD =  (RadioButton)rootView.findViewById(R.id.txtAnswerD);
+        ArrayList<Question> questionsTest = getAllQuestions();
+        for (Question question : questionsTest) {
+            txtQuestion.setText(question.getQuestion());
+            txtAnswerA.setText(question.getOptionA());
+            txtAnswerB.setText(question.getOptionB());
+            txtAnswerC.setText(question.getOptionC());
+            txtAnswerD.setText(question.getOptionD());
+        }
         return rootView;
     }
 
