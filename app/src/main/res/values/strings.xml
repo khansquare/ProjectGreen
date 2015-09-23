@@ -48,6 +48,7 @@
         <item>Sa</item>
     </string-array>
 
+
     <string-array name="custom_months">
         <item>JAN</item>
         <item>FEB</item>
@@ -62,5 +63,12 @@
         <item>NOV</item>
         <item>DEC</item>
     </string-array>
+
+    <array name="profileIcon">
+        <item>@mipmap/ic_label_black_24dp</item>
+        <item>@mipmap/ic_perm_phone_msg_black_24dp</item>
+        <item>@mipmap/ic_email_black_24dp</item>
+        <item>@mipmap/ic_subject_black_24dp</item>
+    </array>
 
 </resources>

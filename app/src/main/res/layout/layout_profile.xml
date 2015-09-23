@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/density_fifteen"
+    android:orientation="vertical"
+    android:background="@color/app_background">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imgPicture"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="fitStart"
+                android:src="@mipmap/ic_calendar_black_24dp"
+                android:layout_marginRight="@dimen/density_ten"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:text="Saniya Mirza"
+                    android:id="@+id/txtTitle"
+                    style="@style/TextViewLargeBlack"
+                    android:textStyle="normal"
+                    android:textSize="20sp"/>
+                <TextView
+                    android:text="We are glad to inform you..."
+                    android:id="@+id/txtValue"
+                    style="@style/TextViewMediumGray"
+                    android:textStyle="normal"
+                    android:textSize="16sp"/>
+            </LinearLayout>
+        </LinearLayout>
+</LinearLayout>

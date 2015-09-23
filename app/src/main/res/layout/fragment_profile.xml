@@ -1,103 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/app_background"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="@dimen/density_fifteen"
-    android:background="@color/app_background">
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:weightSum="10">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center">
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="4"
+        android:background="@drawable/ic_profile_background"
+        android:gravity="center_vertical|center_horizontal">
+        <br.liveo.ui.RoundedImageView
+            android:id="@+id/imgPicture"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:src="@drawable/ic_facebook_grayscale"/>
-        <TextView
-            android:id="@+id/userName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            style="@style/TextViewLargeGray"
-            android:text="David Gibs"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:weightSum="10"
-        android:orientation="horizontal"
-        android:layout_marginTop="@dimen/density_five"
-        android:background="@drawable/bottom_border_gray">
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            style="@style/TextViewLargeGray"
-            android:layout_weight="3.5"
-            android:text="Father Name:-"
-            />
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            style="@style/TextViewLargeGray"
-            android:layout_weight="6.5"
-            android:text="Harshel Gibs"/>
-    </LinearLayout>
-    <LinearLayout
+        android:layout_height="0dp"
+        android:layout_weight="6">
+    <ListView
+        android:id="@+id/listViewProfile"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:weightSum="10"
-        android:orientation="horizontal"
-        android:background="@drawable/bottom_border_gray">
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            style="@style/TextViewLargeGray"
-            android:layout_weight="3.5"
-            android:text="Phone No:-"/>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            style="@style/TextViewLargeGray"
-            android:layout_weight="6.5"
-            android:text="9785999911"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="@drawable/bottom_border_gray"
-        android:weightSum="10">
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            style="@style/TextViewLargeGray"
-            android:layout_weight="3.5"
-            android:text="Address:-"/>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            style="@style/TextViewLargeGray"
-            android:layout_weight="6.5"
-            android:text="70 Tonk Road Jaipur"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="10"
-        android:background="@drawable/bottom_border_gray">
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            style="@style/TextViewLargeGray"
-            android:layout_weight="3.5"
-            android:text="Email:-"/>
-        <TextView
-            android:id="@+id/userEmail"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            style="@style/TextViewLargeGray"
-            android:layout_weight="6.5"
-            android:text="parasme.software@gmail.com"/>
+        android:background="@color/app_background"
+        android:divider="@null">
+    </ListView>
     </LinearLayout>
 </LinearLayout>
