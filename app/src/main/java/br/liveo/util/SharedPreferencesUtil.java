@@ -22,6 +22,7 @@ public class SharedPreferencesUtil {
     public static final String PREFERENCES = "MahindraPreferences" ;
     public static final String NAME = "nameKey";
     public static final String EMAIL = "emailKey";
+    public static final String PASSWORD = "passwordKey";
     public static final String PIC_URL = "picUrlKey";
     public static final String TYPE = "typeKey";
 
@@ -33,6 +34,7 @@ public class SharedPreferencesUtil {
             return new User(
                     sharedpreferences.getString(NAME,""),
                     sharedpreferences.getString(EMAIL,""),
+                    sharedpreferences.getString(PASSWORD,""),
                     sharedpreferences.getString(PIC_URL,""),
                     sharedpreferences.getInt(TYPE,0)
                     );
@@ -43,8 +45,9 @@ public class SharedPreferencesUtil {
         editor = sharedpreferences.edit();
         editor.putString(NAME, user.getUsername());
         editor.putString(EMAIL, user.getEmail());
+        editor.putString(PASSWORD, user.getPassword());
         editor.putString(PIC_URL, user.getPicUrl());
-        editor.putInt(TYPE, user.getUsertype());
+        editor.putInt(TYPE, user.getUserType());
         editor.commit();
     }
 

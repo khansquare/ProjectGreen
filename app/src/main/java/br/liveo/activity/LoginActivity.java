@@ -56,8 +56,8 @@ import twitter4j.TwitterFactory;
 import twitter4j.auth.AccessToken;
 import twitter4j.auth.RequestToken;
 
-import static br.liveo.model.UserType.STUDENT;
-import static br.liveo.model.UserType.GUARDIAN;
+import static br.liveo.model.UserType.*;
+
 
 /**
  * Author       :   Mohsin Khan & Rakesh Kumawat
@@ -169,7 +169,7 @@ public class LoginActivity extends ActionBarActivity implements GoogleApiClient.
             @Override
             public void onClick(View v) {
                 if (!(editPassword.getText().toString().trim().equals(""))) {
-                    startMainActivity(new User("Charles Gibson", "gibson_charles@yahoo.com", "gibson_charles@yahoo.com", STUDENT));
+                    startMainActivity(new User("Charles Babbage", "babbage_charles@yahoo.com", "12345", "", STUDENT));
                 } else {
                     editPassword.setError("Please enter password");
                 }
@@ -294,7 +294,7 @@ public class LoginActivity extends ActionBarActivity implements GoogleApiClient.
                     Plus.AccountApi.clearDefaultAccount(mGoogleApiClient);
                     mGoogleApiClient.disconnect();
                 }
-                startMainActivity(new User(personName, email, personPhotoUrl.substring(0, personPhotoUrl.length() - 2) + 200, STUDENT));
+                startMainActivity(new User(personName, email, "" ,personPhotoUrl.substring(0, personPhotoUrl.length() - 2) + 200, STUDENT));
             } else {
                 generalUtils.showAlertDialog("Error", "Did not find any useful information in profile.");
             }
@@ -325,9 +325,9 @@ public class LoginActivity extends ActionBarActivity implements GoogleApiClient.
                         try {
                             User user;
                             if (object.has("email")) {
-                                user = new User(object.getString("name"), object.getString("email"), "http://graph.facebook.com/"+object.getString("id")+"/picture?type=large", STUDENT);
+                                user = new User(object.getString("name"), object.getString("email"), "", "http://graph.facebook.com/"+object.getString("id")+"/picture?type=large", STUDENT);
                             } else {
-                                user = new User(object.getString("name"), "Facebook : Email is not available", "http://graph.facebook.com/"+object.getString("id")+"/picture?type=small", STUDENT);
+                                user = new User(object.getString("name"), "Facebook : Email is not available", "", "http://graph.facebook.com/"+object.getString("id")+"/picture?type=small", STUDENT);
                             }
                             startMainActivity(user);
                         } catch (JSONException e) {
@@ -455,7 +455,7 @@ public class LoginActivity extends ActionBarActivity implements GoogleApiClient.
         protected void onPostExecute(Boolean response) {
             if(response){
                 progress.hide();
-                startMainActivity(new User(twitterName, "Twitter : Email is not available", twitterPicUrl, STUDENT));
+                startMainActivity(new User(twitterName, "Twitter : Email is not available", "", twitterPicUrl, STUDENT));
             }
         }
     }

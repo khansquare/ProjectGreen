@@ -15,21 +15,24 @@ import java.io.Serializable;
 public class User implements Serializable {
     private String username;
     private String email;
+    private String password;
     private String picUrl;
-    private int usertype;
+    private int userType;
 
     public User() {
         this.username = "";
         this.email = "";
+        this.password = "";
         this.picUrl = "";
-        this.usertype = UserType.STUDENT;
+        this.userType = UserType.STUDENT;
     }
 
-    public User(String username, String email, String picUrl, int usertype) {
+    public User(String username, String email, String password, String picUrl, int userType) {
         this.username = username;
         this.email = email;
+        this.password = password;
         this.picUrl = picUrl;
-        this.usertype = usertype;
+        this.userType = userType;
     }
 
     public String getUsername() {
@@ -48,6 +51,14 @@ public class User implements Serializable {
         this.email = email;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public String getPicUrl() {
         return picUrl;
     }
@@ -56,11 +67,12 @@ public class User implements Serializable {
         this.picUrl = picUrl;
     }
 
-    public int getUsertype() {
-        return usertype;
+    public int getUserType() {
+        return userType;
     }
 
-    public void setUsertype(int usertype) {
-        this.usertype = usertype;
+    public void setUserType(int userType) {
+        this.userType = userType;
     }
+
 }
