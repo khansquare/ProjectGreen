@@ -21,7 +21,7 @@ import br.liveo.navigationviewpagerliveo.R;
  * E-mail       :   khan.square@gmail.com
  * Company      :   Parasme Softwares & Technology
  * Date         :   September 11 , 2015
- * Purpose      :   List Adapter for test lists
+ * Purpose      :   List Adapter for messages
  * Description  :   Detailed Description...
  */
 
