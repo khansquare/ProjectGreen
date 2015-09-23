@@ -59,7 +59,7 @@ public class MessageListAdapter extends ArrayAdapter<Message> {
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
         }
-
+        viewHolder.imgPicture.setImageResource(R.drawable.ic_profile_background);
         viewHolder.txtSender.setText(messages.get(position).getSender());
         viewHolder.txtMessage.setText(messages.get(position).getMessage());
         return convertView;
@@ -74,6 +74,7 @@ public class MessageListAdapter extends ArrayAdapter<Message> {
             txtSender = (TextView) convertView.findViewById(R.id.txtSender);
             //txtDate = (TextView) convertView.findViewById(R.id.txtDate);
             txtMessage = (TextView) convertView.findViewById(R.id.txtMessage);
+            imgPicture = (ImageView) convertView.findViewById(R.id.imgPicture);
         }
     }
 }

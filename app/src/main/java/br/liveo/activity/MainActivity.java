@@ -120,6 +120,9 @@ public class MainActivity extends NavigationLiveo implements OnItemClickListener
     private View.OnClickListener onClickFooter = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.container, new ReportsFragment())
+                    .addToBackStack(MainActivity.MAIN_FRAGMENT_STACK).commit();
+            footerBackground(R.color.nliveo_gray);
             closeDrawer();
         }
     };
