@@ -12,6 +12,7 @@ import br.liveo.fragment.HelpAndSupportFragment;
 import br.liveo.fragment.HomeFragment;
 
 import br.liveo.fragment.MessageFragment;
+import br.liveo.fragment.ProfileFragment;
 import br.liveo.fragment.ReportsFragment;
 import br.liveo.fragment.TestListPagerFragment;
 import br.liveo.interfaces.OnItemClickListener;
@@ -113,6 +114,8 @@ public class MainActivity extends NavigationLiveo implements OnItemClickListener
     private View.OnClickListener onClickPhoto = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.container, new ProfileFragment())
+                    .addToBackStack(MainActivity.MAIN_FRAGMENT_STACK).commit();
             closeDrawer();
         }
     };
@@ -126,4 +129,6 @@ public class MainActivity extends NavigationLiveo implements OnItemClickListener
             closeDrawer();
         }
     };
+
+
 }
