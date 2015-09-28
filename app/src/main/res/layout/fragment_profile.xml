@@ -25,7 +25,8 @@
             android:text="UserName"
             android:id="@+id/userName"
             style="@style/TextViewLargeBlack"
-            android:textStyle="normal"
+            android:textStyle="bold"
+            android:textColor="#FFF"
             android:textSize="20sp"/>
     </LinearLayout>
     <LinearLayout

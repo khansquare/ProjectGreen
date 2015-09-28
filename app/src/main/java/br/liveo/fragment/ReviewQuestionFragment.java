@@ -27,28 +27,5 @@ public class ReviewQuestionFragment extends Fragment {
         setHasOptionsMenu(true);
     }
 
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(R.menu.menu_basic, menu);
-
-
-        menu.findItem(R.id.menu_notify).setVisible(true);
-
-
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.menu_notify:
-                break;
-
-            case R.id.menu_sync:
-
-                break;
-        }
-        return true;
-    }
 
 }

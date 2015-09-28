@@ -108,7 +108,7 @@ public class CustomListAdapter extends ArrayAdapter<String> {
             txtTitle = (TextView) convertView.findViewById(R.id.txtTitle);
             txtValue = (TextView) convertView.findViewById(R.id.txtValue);
             imgIcon = (ImageView) convertView.findViewById(R.id.imgPicture);
-            imgIcon.setColorFilter(getContext().getResources().getColor(R.color.nliveo_green_colorPrimary));
+            imgIcon.setColorFilter(getContext().getResources().getColor(R.color.nliveo_blue_gray_colorPrimary));
         }
     }
 }
