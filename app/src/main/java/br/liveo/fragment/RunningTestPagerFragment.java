@@ -28,6 +28,7 @@ public class RunningTestPagerFragment extends Fragment {
     private List<TabPagerItem> mTabs = new ArrayList<>();
     private FloatingActionButton btnNext;
     private FloatingActionButton btnPrevious;
+    private FloatingActionButton btnSummary;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +47,13 @@ public class RunningTestPagerFragment extends Fragment {
         rootView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
         btnNext = (FloatingActionButton)rootView.findViewById(R.id.btnNext);
         btnPrevious = (FloatingActionButton)rootView.findViewById(R.id.btnPrevious);
+        btnSummary =  (FloatingActionButton)rootView.findViewById(R.id.btnSummary);
+        btnSummary.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container, new RunningTestReviewFragment()).commit();
+            }
+        });
         btnPrevious.setVisibility(View.INVISIBLE);
         return rootView;
     }
@@ -130,11 +138,12 @@ public class RunningTestPagerFragment extends Fragment {
                     mSlidingTabLayout.getTabAt(mViewPager.getCurrentItem() + 1).select();
                 } else if (mViewPager.getCurrentItem() == mSlidingTabLayout.getTabCount() - 1) {
                     btnNext.setIcon(R.drawable.ic_done_all_white_24dp);
-                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container,new RunningTestReviewFragment()).commit();
+                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container, new RunningTestReviewFragment()).commit();
                 }
             }
         });
     }
+
     private void setBtnPreviousOnClickListener() {
 
         btnPrevious.setOnClickListener(new View.OnClickListener() {

@@ -45,8 +45,6 @@ public class ReportsFragment extends Fragment {
 
 
 		menu.findItem(R.id.menu_notify).setVisible(true);
-		menu.findItem(R.id.menu_sync).setVisible(true);
-
 	}	
 	
 	@Override

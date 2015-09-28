@@ -40,6 +40,28 @@
 
         <com.getbase.floatingactionbutton.FloatingActionButton
             xmlns:fab="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/btnRevisit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            fab:fab_icon="@mipmap/ic_bookmark_white_24dp"
+            fab:fab_colorNormal="#4CAF50"
+            fab:fab_colorPressed="#ff787878"
+            android:layout_marginLeft="95dp"
+            android:layout_gravity="bottom"/>
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            xmlns:fab="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/btnSummary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            fab:fab_icon="@mipmap/ic_edit_white_24dp"
+            fab:fab_colorNormal="#4CAF50"
+            fab:fab_colorPressed="#ff787878"
+            android:layout_marginLeft="200dp"
+            android:layout_gravity="bottom"/>
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            xmlns:fab="http://schemas.android.com/apk/res-auto"
             android:id="@+id/btnNext"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

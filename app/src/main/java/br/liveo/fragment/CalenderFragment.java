@@ -1,13 +1,18 @@
 package br.liveo.fragment;
 
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 import android.widget.Toast;
 
 import com.prolificinteractive.materialcalendarview.CalendarDay;
@@ -60,6 +65,20 @@ public class CalenderFragment extends Fragment implements OnDateChangedListener 
     @Override
     public void onDateChanged(@NonNull MaterialCalendarView widget, CalendarDay date) {
         //Toast.makeText(getActivity(),"click on date",Toast.LENGTH_SHORT).show();
+
+            View dialogLayout = ((LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.layout_calender_event, null);
+            final PopupWindow popupWindow = new PopupWindow(dialogLayout, LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT, true);
+
+            Button btnDialogClose = (Button) dialogLayout.findViewById(R.id.btnClose);
+            btnDialogClose.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    popupWindow.dismiss();
+                }
+            });
+
+            popupWindow.showAtLocation(dialogLayout, Gravity.CENTER, 0, 0);
+
     }
 
 }

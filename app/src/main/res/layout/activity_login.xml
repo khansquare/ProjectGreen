@@ -23,13 +23,19 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:weightSum="10">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="2.5"
+                android:paddingTop="@dimen/density_thirty_five"
+                android:background="@color/nliveo_green_colorPrimaryDark"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:background="@color/nliveo_green_colorPrimaryDark"
                 android:gravity="bottom"
-                android:layout_weight="4.5"
                 android:text="Sign in"
+                android:layout_weight="2"
                 android:padding="@dimen/density_twenty"
                 android:layout_marginBottom="@dimen/density_twenty"
                 android:textColor="#fff"
