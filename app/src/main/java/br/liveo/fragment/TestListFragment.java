@@ -28,11 +28,13 @@ import br.liveo.activity.MainActivity;
 import br.liveo.adapter.TestListAdapter;
 import br.liveo.model.Test;
 import br.liveo.navigationviewpagerliveo.R;
+import br.liveo.util.SharedPreferencesUtil;
 
 import static br.liveo.model.TestCategory.ACCESS_KEY;
 import static br.liveo.model.TestCategory.ATTEMPTED;
 import static br.liveo.model.TestCategory.MISSED;
 import static br.liveo.model.TestCategory.UPCOMING;
+import static br.liveo.model.UserType.STUDENT;
 
 @SuppressWarnings("deprecation")
 public class TestListFragment extends Fragment {
@@ -94,18 +96,18 @@ public class TestListFragment extends Fragment {
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
                 if(getArguments().getInt(ACCESS_KEY) == MISSED) {
                     ((Vibrator) getActivity().getSystemService(Context.VIBRATOR_SERVICE)).vibrate(50);
-                    View dialogLayout = ((LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.layout_options, null);
-                    final PopupWindow popupWindow = new PopupWindow(dialogLayout, LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT, true);
-
-                    Button btnDialogClose = (Button) dialogLayout.findViewById(R.id.btnClose);
-                    btnDialogClose.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            popupWindow.dismiss();
-                        }
-                    });
-
-                    popupWindow.showAtLocation(dialogLayout, Gravity.CENTER, 0, 0);
+                    if(new SharedPreferencesUtil(getActivity()).getUser().getUserType() == STUDENT) {
+                        View dialogLayout = ((LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.layout_options, null);
+                        final PopupWindow popupWindow = new PopupWindow(dialogLayout, LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT, true);
+                        Button btnDialogClose = (Button) dialogLayout.findViewById(R.id.btnClose);
+                        btnDialogClose.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                popupWindow.dismiss();
+                            }
+                        });
+                        popupWindow.showAtLocation(dialogLayout, Gravity.CENTER, 0, 0);
+                    }
                 }
                 return true;
             }
