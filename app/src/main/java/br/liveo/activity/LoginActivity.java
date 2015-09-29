@@ -120,8 +120,8 @@ public class LoginActivity extends ActionBarActivity implements GoogleApiClient.
         FacebookSdk.sdkInitialize(getApplicationContext());
         setContentView(R.layout.activity_login);
         txtEmail = (TextView) findViewById(R.id.txtEmail);
-        editEmail = (EditText) findViewById(R.id.editEmail);
-        editPassword = (EditText) findViewById(R.id.editPassword);
+        editEmail = (EditText) findViewById(R.id.fName);
+        editPassword = (EditText) findViewById(R.id.fPass);
         viewFlipper = (ViewFlipper) findViewById(R.id.viewFlipper);
         generalUtils = new GeneralUtils(this);
         mGoogleApiClient = new GoogleApiClient.Builder(this)

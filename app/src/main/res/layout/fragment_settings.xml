@@ -46,7 +46,6 @@
                 android:layout_weight="2"
                 android:checked="true"
                 android:focusable="false"
-
                 android:foreground="@android:color/transparent"
                 android:theme="@style/SwitchTheme"/>
         </LinearLayout>
