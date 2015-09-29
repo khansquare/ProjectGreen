@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
+    android:background="@drawable/bg_new1"
     android:paddingTop="@dimen/density_seventy"
     android:paddingBottom="@dimen/density_seventy"
     android:paddingLeft="@dimen/density_twenty_five"
@@ -215,10 +215,11 @@
                 android:textColor="#fff"
                 android:textSize="20sp"/>
             <android.support.design.widget.TextInputLayout
-                android:id="@+id/fPassForgetLayout"
+                android:id="@+id/txtLayoutForgetPassword"
                 android:layout_width="match_parent"
                 android:layout_marginLeft="13dp"
                 android:layout_marginRight="13dp"
+
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/imageView"
                 android:layout_centerHorizontal="true"
@@ -226,13 +227,13 @@
                 android:layout_marginTop="0dp">
 
                 <EditText
-                    android:id="@+id/fPassForget"
+                    android:id="@+id/editForgetPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Enter Email"/>
             </android.support.design.widget.TextInputLayout>
             <Button
-                android:id="@+id/btnLoginOnForgetPassword"
+                android:id="@+id/btnSubmitOnForgetPassword"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_weight="1"

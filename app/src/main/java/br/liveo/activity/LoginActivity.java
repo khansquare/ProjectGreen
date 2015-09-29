@@ -11,6 +11,7 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Base64;
 import android.util.Log;
@@ -114,6 +115,7 @@ public class LoginActivity extends ActionBarActivity implements GoogleApiClient.
         setBtnFacebookListener();
         setBtnTwitterListener();
         setOnForgetPasswordListener();
+        setBtnSubmitOnForgetPasswordListener();
     }
 
     private void initializeAllElements() {
@@ -205,6 +207,27 @@ public class LoginActivity extends ActionBarActivity implements GoogleApiClient.
         });
     }
 
+    private void setBtnSubmitOnForgetPasswordListener() {
+        findViewById(R.id.btnSubmitOnForgetPassword).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TextInputLayout txtLayoutForgetPassword = (TextInputLayout) findViewById(R.id.txtLayoutForgetPassword);
+                txtLayoutForgetPassword.setErrorEnabled(true);
+                EditText editForgetPassword = (EditText) findViewById(R.id.editForgetPassword);
+                if (editForgetPassword.getText().toString().trim().equals("")) {
+
+                    txtLayoutForgetPassword.setError("Please enter a valid email address.");
+                } else {
+                    if (!(editForgetPassword.getText().toString().matches ("^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$"))) {
+                        setOnForgetPasswordListener();
+                    } else {
+                        txtLayoutForgetPassword.setError("Email is required.");
+                    }
+
+                }
+            }
+        });
+    }
     private void setBtnBackToLoginListener() {
         ImageButton btnBackToLogin = (ImageButton) findViewById(R.id.btnBackToLogin);
         btnBackToLogin.setOnClickListener(new View.OnClickListener() {
