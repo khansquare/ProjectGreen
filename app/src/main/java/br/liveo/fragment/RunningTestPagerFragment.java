@@ -19,6 +19,7 @@ import java.util.List;
 
 import br.liveo.adapter.TabPagerItem;
 import br.liveo.adapter.ViewPagerAdapter;
+import br.liveo.model.Question;
 import br.liveo.navigationviewpagerliveo.R;
 
 public class RunningTestPagerFragment extends Fragment {
@@ -34,9 +35,17 @@ public class RunningTestPagerFragment extends Fragment {
         super.onCreate(savedInstanceState);
         createTabPagerItem();
     }
+    private ArrayList<Question> getAllQuestions() {
+        ArrayList<Question> questions = new ArrayList<>();
+        questions.add(new Question("Which is a reserved word in the Java programming language?","method","native","subclasses","reference"));
+        questions.add(new Question("Which one of these lists contains only Java programming language keywords?","class, if, void, long, Int, continue","goto, instanceof, native, finally, default, throws","try, virtual, throw, final, volatile, transient","byte, break, assert, switch, include"));
+        questions.add(new Question("Which is a valid keyword in java?", "interface", "string", "unsigned", "Float"));
+        questions.add(new Question("Which is the valid declarations within an interface definition?", "public double methoda();", "ublic final double methoda();", "static void methoda(double d1);", "protected void methoda(double d1);"));
+        return questions;
+    }
 
     private void createTabPagerItem() {
-        for (int i = 0; i < TOTAL_QUESTIONS; i++) {
+        for (int i = 0; i < getAllQuestions().size(); i++) {
             mTabs.add(new TabPagerItem(String.valueOf(i), new RunningTestQuestionFragment()));
         }
     }
