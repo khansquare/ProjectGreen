@@ -168,10 +168,12 @@ public class LoginActivity extends ActionBarActivity implements GoogleApiClient.
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!(editPassword.getText().toString().trim().equals(""))) {
-                    startMainActivity(new User("Charles Babbage", "babbage_charles@yahoo.com", "12345", "", STUDENT));
+                if(editEmail.getText().toString().trim().equals("student") && editPassword.getText().toString().trim().equals("student")) {
+                    startMainActivity(new User("Lorem Ipsum", "student.login@yahoo.com", "12345", "", STUDENT));
+                } else if (editEmail.getText().toString().trim().equals("parent") && editPassword.getText().toString().trim().equals("parent")) {
+                    startMainActivity(new User("Lorem Ipsum", "parent.login@yahoo.com", "12345", "", GUARDIAN));
                 } else {
-                    editPassword.setError("Please enter password");
+                    generalUtils.showAlertDialog("Error","Invalid Credentials! Please Login As Student Or Parent.");
                 }
             }
         });

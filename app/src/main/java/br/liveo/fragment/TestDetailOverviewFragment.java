@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.widget.SearchView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -14,9 +15,12 @@ import android.widget.Button;
 
 import br.liveo.activity.MainActivity;
 import br.liveo.navigationviewpagerliveo.R;
+import br.liveo.util.SharedPreferencesUtil;
 
 import static br.liveo.model.TestCategory.ACCESS_KEY;
 import static br.liveo.model.TestCategory.LIVE;
+
+import static br.liveo.model.UserType.*;
 
 /**
  * Author       :   Mohsin Khan
@@ -35,7 +39,11 @@ public class TestDetailOverviewFragment extends Fragment {
         rootView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
         btnTakeTestAtOverview=(Button)rootView.findViewById(R.id.btnTakeTestAtOverview);
         if (getArguments().getInt(ACCESS_KEY) == LIVE) {
-            rootView.findViewById(R.id.layoutFooterAtOverview).setVisibility(View.VISIBLE);
+            if(new SharedPreferencesUtil(getActivity()).getUser().getUserType() == STUDENT) {
+                rootView.findViewById(R.id.layoutFooterAtOverview).setVisibility(View.VISIBLE);
+            } else {
+                rootView.findViewById(R.id.layoutFooterAtOverview).setVisibility(View.GONE);
+            }
         } else {
             rootView.findViewById(R.id.layoutFooterAtOverview).setVisibility(View.GONE);
         }
