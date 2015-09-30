@@ -41,6 +41,16 @@
             android:label="@string/app_name" >
         </activity>
         <activity
+            android:name="br.liveo.activity.ProfileActivity"
+            android:theme="@style/nLiveoDrawer"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="br.liveo.activity.SettingsActivity"
+            android:theme="@style/nLiveoDrawer"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
             android:name="br.liveo.activity.MainActivity"
             android:theme="@style/nLiveoDrawer"
             android:label="@string/app_name">

@@ -1,5 +1,6 @@
 package br.liveo.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -118,8 +119,10 @@ public class MainActivity extends NavigationLiveo implements OnItemClickListener
     private View.OnClickListener onClickPhoto = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.container, new ProfileFragment())
-                    .addToBackStack(MainActivity.MAIN_FRAGMENT_STACK).commit();
+            Intent intent =new Intent(getApplicationContext(),ProfileActivity.class);
+            startActivity(intent);
+          /*  getSupportFragmentManager().beginTransaction().replace(R.id.container, new ProfileFragment())
+                    .addToBackStack(MainActivity.MAIN_FRAGMENT_STACK).commit();*/
             closeDrawer();
         }
     };
@@ -127,9 +130,11 @@ public class MainActivity extends NavigationLiveo implements OnItemClickListener
     private View.OnClickListener onClickFooter = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.container, new SettingsFragment())
+            Intent intent =new Intent(getApplicationContext(),SettingsActivity.class);
+            startActivity(intent);
+          /* getSupportFragmentManager().beginTransaction().replace(R.id.container, new SettingsFragment())
                     .addToBackStack(MainActivity.MAIN_FRAGMENT_STACK).commit();
-            footerBackground(R.color.nliveo_gray);
+            footerBackground(R.color.nliveo_gray);*/
             closeDrawer();
         }
     };
