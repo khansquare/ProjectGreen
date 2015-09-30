@@ -22,8 +22,8 @@ import br.liveo.navigationviewpagerliveo.R;
  * Author       :   Mohsin Khan
  * Designation  :   Android Developer
  * E-mail       :   khan.square@gmail.com
- * Company      :   Parasme Softwares & Technology
- * Date         :   September 5 , 2015
+ * Company      :   Parasme Software & Technology
+ * Date         :   September 28 , 2015
  * Purpose      :   Application Settings
  * Description  :   Detailed Description...
  */

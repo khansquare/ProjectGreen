@@ -47,7 +47,7 @@
                 android:checked="true"
                 android:focusable="false"
                 android:foreground="@android:color/transparent"
-                android:theme="@style/SwitchTheme"/>
+                android:theme="@style/ThemeAccent"/>
         </LinearLayout>
         <LinearLayout
             android:id="@+id/layoutChangePassword"

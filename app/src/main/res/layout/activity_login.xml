@@ -48,7 +48,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/imageView"
                 android:layout_centerHorizontal="true"
-                android:theme="@style/SwitchTheme"
+                android:theme="@style/ThemeAccent"
                 android:layout_marginTop="0dp">
 
                 <EditText
@@ -156,7 +156,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/imageView"
                 android:layout_centerHorizontal="true"
-                android:theme="@style/SwitchTheme"
+                android:theme="@style/ThemeAccent"
                 android:layout_marginTop="0dp">
 
                 <EditText
@@ -223,7 +223,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/imageView"
                 android:layout_centerHorizontal="true"
-                android:theme="@style/SwitchTheme"
+                android:theme="@style/ThemeAccent"
                 android:layout_marginTop="0dp">
 
                 <EditText

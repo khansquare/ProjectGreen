@@ -27,11 +27,12 @@ import br.liveo.util.SharedPreferencesUtil;
  * Author       :   Mohsin Khan
  * Designation  :   Android Developer
  * E-mail       :   khan.square@gmail.com
- * Company      :   Parasme Softwares & Technology
+ * Company      :   Parasme Software & Technology
  * Date         :   September 5 , 2015
  * Purpose      :   Root Activity of the app
- * Description  :   Detailed Description...
+ * Description  :   On this activity,  we had implemented a drawer. All the main fragments will be loaded from here...
  */
+@SuppressWarnings("Convert2Lambda")
 public class MainActivity extends NavigationLiveo implements OnItemClickListener {
     private HelpLiveo mHelpLiveo;
     private GeneralUtils generalUtils;
@@ -70,39 +71,41 @@ public class MainActivity extends NavigationLiveo implements OnItemClickListener
 
         int position = this.getCurrentPosition();
         this.setElevationToolBar(position != 2 ? 15 : 0);
+        getSupportFragmentManager().beginTransaction().replace(R.id.container, new HomeFragment()).commit();
     }
 
     @Override
     public void onItemClick(int position) {
-        Fragment mFragment;
-        FragmentManager mFragmentManager = getSupportFragmentManager();
         switch (position){
             case 0:
-                mFragment = new HomeFragment();
+                getSupportFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
                 break;
             case 2:
-                mFragment = new TestListPagerFragment();
+                getSupportFragmentManager().beginTransaction().replace(R.id.container, new TestListPagerFragment())
+                        .addToBackStack(MainActivity.MAIN_FRAGMENT_STACK).commit();
                 break;
             case 3:
-                mFragment = new ReportsFragment();
+                getSupportFragmentManager().beginTransaction().replace(R.id.container, new ReportsFragment())
+                        .addToBackStack(MainActivity.MAIN_FRAGMENT_STACK).commit();
                 break;
             case 4:
-                mFragment = new MessageFragment();
+                getSupportFragmentManager().beginTransaction().replace(R.id.container, new MessageFragment())
+                        .addToBackStack(MainActivity.MAIN_FRAGMENT_STACK).commit();
                 break;
             case 5:
-                mFragment = new CalenderFragment();
+                getSupportFragmentManager().beginTransaction().replace(R.id.container, new CalenderFragment())
+                        .addToBackStack(MainActivity.MAIN_FRAGMENT_STACK).commit();
                 break;
             case 8:
-                mFragment = new HelpAndSupportFragment();
+                getSupportFragmentManager().beginTransaction().replace(R.id.container, new HelpAndSupportFragment())
+                        .addToBackStack(MainActivity.MAIN_FRAGMENT_STACK).commit();
                 break;
             default:
-                mFragment = new HomeFragment();
+                getSupportFragmentManager().beginTransaction().replace(R.id.container, new HelpAndSupportFragment())
+                        .addToBackStack(MainActivity.MAIN_FRAGMENT_STACK).commit();
                 break;
         }
 
-        if (mFragment != null){
-            mFragmentManager.beginTransaction().replace(R.id.container, mFragment).commit();
-        }
         setElevationToolBar(position != 2 ? 15 : 0);
     }
 
@@ -130,6 +133,4 @@ public class MainActivity extends NavigationLiveo implements OnItemClickListener
             closeDrawer();
         }
     };
-
-
 }

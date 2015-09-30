@@ -1,5 +1,8 @@
 package br.liveo.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 /**
  * Author       :   Rakesh Kumawat
  * Designation  :   Android Developer
@@ -9,7 +12,7 @@ package br.liveo.model;
  * Purpose      :   Question Model
  * Description  :   Detailed Description...
  */
-public class Question {
+public class Question implements Parcelable {
     private int id;
     //Question Title
     private String question;
@@ -110,4 +113,13 @@ public class Question {
     }
 
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+
+    }
 }

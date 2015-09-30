@@ -12,7 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.getbase.floatingactionbutton.FloatingActionButton;
+import android.support.design.widget.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,30 +23,32 @@ import br.liveo.model.Question;
 import br.liveo.navigationviewpagerliveo.R;
 
 public class RunningTestPagerFragment extends Fragment {
-    private int TOTAL_QUESTIONS = 10;
     public static ViewPager mViewPager;
     public static TabLayout mSlidingTabLayout;
     private List<TabPagerItem> mTabs = new ArrayList<>();
     private FloatingActionButton btnNext;
     private FloatingActionButton btnPrevious;
     private FloatingActionButton btnSummary;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         createTabPagerItem();
     }
-    private ArrayList<Question> getAllQuestions() {
+
+    private void createTabPagerItem() {
         ArrayList<Question> questions = new ArrayList<>();
         questions.add(new Question("Which is a reserved word in the Java programming language?","method","native","subclasses","reference"));
         questions.add(new Question("Which one of these lists contains only Java programming language keywords?","class, if, void, long, Int, continue","goto, instanceof, native, finally, default, throws","try, virtual, throw, final, volatile, transient","byte, break, assert, switch, include"));
         questions.add(new Question("Which is a valid keyword in java?", "interface", "string", "unsigned", "Float"));
         questions.add(new Question("Which is the valid declarations within an interface definition?", "public double methoda();", "ublic final double methoda();", "static void methoda(double d1);", "protected void methoda(double d1);"));
-        return questions;
-    }
-
-    private void createTabPagerItem() {
-        for (int i = 0; i < getAllQuestions().size(); i++) {
-            mTabs.add(new TabPagerItem(String.valueOf(i), new RunningTestQuestionFragment()));
+        questions.add(new Question("Which is the valid declarations within an interface definition the valid declarations within an interface definition the valid declarations within an interface definition?", "public double methoda();public double methoda();public double methoda();", "public double methoda();public double methoda();public double methoda();;", "public double methoda();public double methoda();public double methoda();public double methoda();public double methoda();public double methoda();public double methoda();", "protected void methoda(double d1);"));
+        for (int i = 0; i < questions.size(); i++) {
+            Bundle bundle = new Bundle();
+            RunningTestQuestionFragment runningTestQuestionFragment = new RunningTestQuestionFragment();
+            bundle.putParcelable("QUESTION", questions.get(i));
+            runningTestQuestionFragment.setArguments(bundle);
+            mTabs.add(new TabPagerItem(String.valueOf(i), runningTestQuestionFragment));
         }
     }
 
@@ -110,7 +112,7 @@ public class RunningTestPagerFragment extends Fragment {
                 if (position < mSlidingTabLayout.getTabCount() - 1 ) {
                     deselect((TextView) mSlidingTabLayout.getTabAt(position + 1).getCustomView().findViewById(R.id.txtQuestionNumber));
                 } else if (mViewPager.getCurrentItem() == mSlidingTabLayout.getTabCount()) {
-                    btnNext.setIcon(R.drawable.ic_done_all_white_24dp);
+                    //btnNext.setIcon(R.drawable.ic_done_all_white_24dp);
                 }
             }
 
@@ -141,12 +143,10 @@ public class RunningTestPagerFragment extends Fragment {
 
             @Override
             public void onClick(View v) {
-                Log.e("NEXT", mViewPager.getCurrentItem() + " / " + mSlidingTabLayout.getTabCount());
-
                 if (mViewPager.getCurrentItem() < mSlidingTabLayout.getTabCount() - 1) {
                     mSlidingTabLayout.getTabAt(mViewPager.getCurrentItem() + 1).select();
                 } else if (mViewPager.getCurrentItem() == mSlidingTabLayout.getTabCount() - 1) {
-                    btnNext.setIcon(R.drawable.ic_done_all_white_24dp);
+                    //btnNext.setIcon(R.drawable.ic_done_all_white_24dp);
                     getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container, new RunningTestReviewFragment()).commit();
                 }
             }
@@ -159,7 +159,6 @@ public class RunningTestPagerFragment extends Fragment {
 
             @Override
             public void onClick(View v) {
-                Log.e("PREVIOUS", mViewPager.getCurrentItem() + "");
                 if (mViewPager.getCurrentItem() > 0) {
                     mSlidingTabLayout.getTabAt(mViewPager.getCurrentItem() - 1).select();
                 }

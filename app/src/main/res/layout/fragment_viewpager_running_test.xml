@@ -2,6 +2,7 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main_content"
     android:orientation="vertical"
     android:layout_width="match_parent"
@@ -28,46 +29,44 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_behavior="@string/appbar_scrolling_view_behavior" />
-        <com.getbase.floatingactionbutton.FloatingActionButton
-            xmlns:fab="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/btnPrevious"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            fab:fab_icon="@drawable/ic_reply_white_24dp"
-            fab:fab_colorNormal="#4CAF50"
-            fab:fab_colorPressed="#ff787878"
-            android:layout_gravity="bottom|start|left"/>
+            android:orientation="horizontal"
+            android:weightSum="4"
+            android:gravity="center_horizontal"
+            android:layout_gravity="bottom">
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/btnPrevious"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_reply_white_24dp"
+                android:theme="@style/ThemeAccent"/>
 
-        <com.getbase.floatingactionbutton.FloatingActionButton
-            xmlns:fab="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/btnRevisit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            fab:fab_icon="@mipmap/ic_bookmark_white_24dp"
-            fab:fab_colorNormal="#4CAF50"
-            fab:fab_colorPressed="#ff787878"
-            android:layout_marginLeft="95dp"
-            android:layout_gravity="bottom"/>
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/btnRevisit"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/ic_bookmark_white_24dp"
+                android:theme="@style/ThemeAccent"/>
 
-        <com.getbase.floatingactionbutton.FloatingActionButton
-            xmlns:fab="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/btnSummary"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            fab:fab_icon="@mipmap/ic_edit_white_24dp"
-            fab:fab_colorNormal="#4CAF50"
-            fab:fab_colorPressed="#ff787878"
-            android:layout_marginLeft="200dp"
-            android:layout_gravity="bottom"/>
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/btnSummary"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/ic_edit_white_24dp"
+                android:theme="@style/ThemeAccent"/>
 
-        <com.getbase.floatingactionbutton.FloatingActionButton
-            xmlns:fab="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/btnNext"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            fab:fab_icon="@drawable/ic_reply_white_24dp_right"
-            fab:fab_colorNormal="#4CAF50"
-            fab:fab_colorPressed="#ff787878"
-            android:layout_gravity="bottom|end|right"/>
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/btnNext"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_reply_white_24dp_right"
+                android:theme="@style/ThemeAccent"/>
+        </LinearLayout>
     </FrameLayout>
 </LinearLayout>

@@ -6,51 +6,53 @@
     android:layout_height="match_parent"
     android:padding="@dimen/density_fifteen"
     android:background="@color/app_background">
-
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-        <TextView
-            android:id="@+id/txtQuestion"
-            android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="1. The difference between aldol condensation and Cannizaro's reaction is that:"
-            style="@style/TextViewLargeBlack"
-            android:layout_marginBottom="@dimen/density_twenty" />
-        <RadioGroup
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            >
-            <RadioButton
-                android:id="@+id/txtAnswerA"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/txtQuestion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="the former takes place in the presence of a--H-atom"
-                style="@style/TextViewLargeGray"/>
-            <RadioButton
-                android:id="@+id/txtAnswerB"
+                android:text="1. The difference between aldol condensation and Cannizaro's reaction is that:"
+                style="@style/TextViewLargeBlack"
+                android:layout_marginBottom="@dimen/density_twenty" />
+            <RadioGroup
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/TextViewLargeGray"
-                android:layout_marginTop="10dp"
-                android:text="the former takes place in the absence of a--H-atom"/>
-            <RadioButton
-                android:id="@+id/txtAnswerC"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="the former takes place in the presence of B-H-atom"
-                android:layout_marginTop="10dp"
-                style="@style/TextViewLargeGray"/>
-            <RadioButton
-                android:id="@+id/txtAnswerD"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="none of the above"
-                android:layout_marginTop="10dp"
-                style="@style/TextViewLargeGray"/>
-
-        </RadioGroup>
-    </LinearLayout>
+                android:orientation="vertical">
+                <RadioButton
+                    android:id="@+id/radioAnswerA"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="the former takes place in the presence of a--H-atom"
+                    style="@style/TextViewLargeGray"/>
+                <RadioButton
+                    android:id="@+id/radioAnswerB"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/TextViewLargeGray"
+                    android:layout_marginTop="10dp"
+                    android:text="the former takes place in the absence of a--H-atom"/>
+                <RadioButton
+                    android:id="@+id/radioAnswerC"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="the former takes place in the presence of B-H-atom"
+                    android:layout_marginTop="10dp"
+                    style="@style/TextViewLargeGray"/>
+                <RadioButton
+                    android:id="@+id/radioAnswerD"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="none of the above"
+                    android:layout_marginTop="10dp"
+                    style="@style/TextViewLargeGray"
+                    android:layout_marginBottom="@dimen/density_seventy"/>
+            </RadioGroup>
+        </LinearLayout>
+    </ScrollView>
 </FrameLayout>
