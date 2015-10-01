@@ -41,8 +41,9 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_reply_white_24dp"
-                android:theme="@style/ThemeAccent"/>
+                android:src="@mipmap/ic_reply_white_24dp"
+                android:theme="@style/ThemeAccent"
+                app:backgroundTint="@color/nliveo_green_colorPrimary"/>
 
             <android.support.design.widget.FloatingActionButton
                 android:id="@+id/btnRevisit"
@@ -50,7 +51,8 @@
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:src="@mipmap/ic_bookmark_white_24dp"
-                android:theme="@style/ThemeAccent"/>
+                android:theme="@style/ThemeAccent"
+                app:backgroundTint="@color/nliveo_green_colorPrimary"/>
 
             <android.support.design.widget.FloatingActionButton
                 android:id="@+id/btnSummary"
@@ -58,7 +60,8 @@
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:src="@mipmap/ic_edit_white_24dp"
-                android:theme="@style/ThemeAccent"/>
+                android:theme="@style/ThemeAccent"
+                app:backgroundTint="@color/nliveo_green_colorPrimary"/>
 
             <android.support.design.widget.FloatingActionButton
                 android:id="@+id/btnNext"
@@ -66,7 +69,8 @@
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_reply_white_24dp_right"
-                android:theme="@style/ThemeAccent"/>
+                android:theme="@style/ThemeAccent"
+                app:backgroundTint="@color/nliveo_green_colorPrimary"/>
         </LinearLayout>
     </FrameLayout>
 </LinearLayout>

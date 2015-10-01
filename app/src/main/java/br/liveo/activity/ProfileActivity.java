@@ -3,10 +3,7 @@ package br.liveo.activity;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -60,12 +57,12 @@ public class ProfileActivity extends ActionBarActivity {
         values.add(user.getEmail());
         values.add("2/33, Main Street, Marray hills, California");
         TypedArray proficIcon = getResources().obtainTypedArray(R.array.profileIcon);
+        listViewProfile.addHeaderView(getLayoutInflater().inflate(R.layout.layout_profile_header, null));
+        listViewProfile.setAdapter(new CustomListAdapter(ProfileActivity.this, R.layout.layout_profile, titles, values, proficIcon));
         profilePic = (ImageView)findViewById(R.id.imgPicture);
         generalUtils = new GeneralUtils(getApplicationContext());
         generalUtils.loadProfilePic(this.profilePic, user.getPicUrl());
         userName = (TextView)findViewById(R.id.userName);
         userName.setText(user.getUsername().toUpperCase());
-        listViewProfile.setAdapter(new CustomListAdapter(ProfileActivity.this, R.layout.layout_profile, titles, values, proficIcon));
-        listViewProfile.addHeaderView(getLayoutInflater().inflate(R.layout.layout_message, null));
     }
 }
